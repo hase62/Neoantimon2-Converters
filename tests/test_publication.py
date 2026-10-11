@@ -55,6 +55,13 @@ class PublicationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "immutable"):
             check_immutable(ROOT, self.root)
 
+    def test_page_discloses_maintainer_only_feedback_and_license_links(self):
+        text = (self.root / "index.html").read_text()
+        self.assertIn("both reactions are from @hase62", text)
+        self.assertIn("no independent community validation", text)
+        for name in ("LICENSE", "NOTICE", "LICENSING.md"):
+            self.assertIn('href="' + name + '"', text)
+
     def test_pages_contains_no_workflows_or_tests(self):
         out = prepare(self.root, self.parent / "site")
         self.assertFalse((out / ".github").exists())

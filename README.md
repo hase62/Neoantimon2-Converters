@@ -6,6 +6,10 @@ Discovery: https://hase62.github.io/Neoantimon2-Converters/
 
 HTTPS index: https://hase62.github.io/Neoantimon2-Converters/index.json
 
+The existing account Pages domain redirects these URLs over HTTPS to
+https://www.hase62.jp/Neoantimon2-Converters/ (also hosted by GitHub Pages).
+No new domain or non-GitHub backend is used.
+
 Initial maintainer: @hase62. Public contributions use Pull Requests with
 maintainer review. See [LICENSING.md](LICENSING.md), [LICENSE](LICENSE) and
 [NOTICE](NOTICE) for the preserved infrastructure and converter boundaries.
@@ -122,6 +126,8 @@ Its read-only build stages static assets; its privileged deployment job has
 no checkout or converter execution. Direct action commits are pinned. Review
 upstream/transitive action updates before changing those pins.
 
+The initial feedback snapshot links [maintainer test Issue #3](https://github.com/hase62/Neoantimon2-Converters/issues/3).
+Its OK=1 and NG=1 reactions are both from the same owner account @hase62.
 The maintainer synthetic test PRs and Issue are operational smoke tests, not
 independent community validation, scientific review or real predictor accuracy
 claims. Feedback snapshots remain manual; an Issue's reaction counts can be
