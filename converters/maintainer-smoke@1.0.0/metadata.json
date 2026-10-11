@@ -1,0 +1,21 @@
+{
+  "id": "maintainer-smoke@1.0.0",
+  "runtime": "R",
+  "script": "converters/maintainer-smoke@1.0.0/converter.R",
+  "sha256": "ff2f3c4351df4bc6cfd91719a64edc2adf300f26425cbc19e0c66d20b5a5d8fb",
+  "metadata": {
+    "output_schema": "external-prediction-1.0.0",
+    "description": "Maintainer synthetic PR smoke test only; no independent community validation or clinical meaning",
+    "usage": "Rscript converter.R --input input-X.tsv --output standard.tsv --bundle export",
+    "arguments": [
+      "--input",
+      "--output",
+      "--bundle"
+    ],
+    "license": "MIT"
+  },
+  "supported_predictor_versions": [
+    "synthetic-model@1"
+  ],
+  "source_revision": "bf5712b5d13091cc00d18cb28816870cbd874092"
+}
