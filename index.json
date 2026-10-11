@@ -21,9 +21,9 @@
         "synthetic-model@1"
       ],
       "source_revision": "local-scaffold-v1",
-      "issue_url": null,
-      "ok": 0,
-      "ng": 0
+      "issue_url": "https://github.com/hase62/Neoantimon2-Converters/issues/3",
+      "ok": 1,
+      "ng": 1
     }
   ]
 }
