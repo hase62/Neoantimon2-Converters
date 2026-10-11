@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "feedback": {
+    "synthetic-example@1.0.0": {
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0,
+      "refreshed_at": null
+    }
+  }
+}

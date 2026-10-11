@@ -1,0 +1,22 @@
+name: Registry hygiene (no converter execution)
+"on": [pull_request]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          path: submitted
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          persist-credentials: false
+      - name: Validate contributed data with the base branch validator
+        run: python3 trusted/build_index.py submitted
+      - name: Check accepted version immutability
+        run: python3 trusted/build_index.py --check-immutable trusted submitted

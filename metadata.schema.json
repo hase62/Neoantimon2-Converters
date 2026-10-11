@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Immutable converter metadata 1.0.0 (legacy feedback ignored)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "runtime",
+    "script",
+    "sha256",
+    "metadata",
+    "supported_predictor_versions",
+    "source_revision"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*@[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "runtime": {
+      "enum": [
+        "R",
+        "Python"
+      ]
+    },
+    "script": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "output_schema",
+        "description",
+        "usage",
+        "arguments",
+        "license"
+      ],
+      "properties": {
+        "output_schema": {
+          "const": "external-prediction-1.0.0"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "usage": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "arguments": {
+          "const": [
+            "--input",
+            "--output",
+            "--bundle"
+          ]
+        }
+      }
+    },
+    "supported_predictor_versions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issue_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^https://github\\.com/[^/]+/[^/]+/issues/[0-9]+$",
+      "deprecated": true,
+      "description": "Frozen legacy field, ignored by the index builder. New submissions omit it; use feedback.json."
+    },
+    "ok": {
+      "type": "integer",
+      "minimum": 0,
+      "deprecated": true,
+      "description": "Frozen legacy field, ignored by the index builder. New submissions omit it; use feedback.json."
+    },
+    "ng": {
+      "type": "integer",
+      "minimum": 0,
+      "deprecated": true,
+      "description": "Frozen legacy field, ignored by the index builder. New submissions omit it; use feedback.json."
+    }
+  }
+}

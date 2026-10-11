@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Community converters</title>
+<body><h1>Community converters</h1>
+<p>Community OK/NG observations are not certification. Review code before local execution.
+GitHub accounts are required for feedback. Counts are recorded snapshots, not live totals.</p>
+<label>Search <input id="search" type="search"></label><main id="list"></main>
+<p><a href="README.md">Submission and local execution guide</a></p>
+<p id="error" role="status"></p>
+<script>
+let entries = [];
+let feedback = {};
+function render() {
+  const box = document.getElementById('list'); box.replaceChildren();
+  const query = document.getElementById('search').value.toLowerCase();
+  for (const e of entries.filter(e => (e.id + ' ' + e.metadata.description + ' ' + e.supported_predictor_versions.join(' ')).toLowerCase().includes(query))) {
+    const item = document.createElement('article');
+    const title = document.createElement('h2'); title.textContent = e.id; item.append(title);
+    const text = document.createElement('p'); text.textContent = `${e.runtime}: ${e.metadata.description}`; item.append(text);
+    const votes = document.createElement('p');
+    const snapshot = feedback[e.id];
+    const dated = snapshot && snapshot.issue_url === e.issue_url && snapshot.ok === e.ok && snapshot.ng === e.ng && snapshot.refreshed_at;
+    votes.textContent = e.issue_url ? `OK ${e.ok} / NG ${e.ng} — snapshot ${dated || 'date unknown'}; not live` : 'No feedback issue; counts unavailable';
+    item.append(votes);
+    const sha = document.createElement('p'); sha.textContent = `SHA256: ${e.sha256}`; item.append(sha);
+    const versions = document.createElement('p');
+    versions.textContent = `Declared predictor versions: ${e.supported_predictor_versions.join(', ') || 'unspecified'}; community reports may identify incompatibilities`;
+    item.append(versions);
+    const usage = document.createElement('p'); usage.textContent = e.metadata.usage; item.append(usage);
+    const details = document.createElement('a');
+    details.href = `converters/${encodeURIComponent(e.id)}/metadata.json`;
+    details.textContent = 'Version metadata'; item.append(details);
+    // Only local safe paths built by the registry validator become links.
+    if (/^[A-Za-z0-9_/@.-]+$/.test(e.script) && e.script.startsWith(`converters/${e.id}/`) &&
+        !e.script.split('/').some(part => ['', '.', '..'].includes(part))) {
+      const script = document.createElement('a'); script.href = e.script;
+      script.textContent = 'Review/download exact script (does not execute it)'; item.append(script);
+    }
+    if (e.issue_url && /^https:\/\/github\.com\/[^/]+\/[^/]+\/issues\/[0-9]+$/.test(e.issue_url)) {
+      const a = document.createElement('a'); a.href = e.issue_url; a.textContent = 'Feedback on GitHub'; item.append(a);
+    }
+    box.append(item);
+  }
+}
+Promise.all([fetch('index.json').then(r => { if (!r.ok) throw new Error('Index unavailable'); return r.json(); }),
+  fetch('feedback.json').then(r => r.json()).catch(() => ({ feedback: {} }))])
+  .then(([index, snapshots]) => { entries = index.converters; feedback = snapshots.feedback || {}; render(); })
+  .catch(() => { document.getElementById('error').textContent = 'Registry index unavailable. Retry later or use an already approved local converter cache.'; });
+document.getElementById('search').addEventListener('input', render);
+</script></body></html>
