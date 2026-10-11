@@ -62,6 +62,11 @@ class PublicationTests(unittest.TestCase):
         for name in ("LICENSE", "NOTICE", "LICENSING.md"):
             self.assertIn('href="' + name + '"', text)
 
+    def test_guide_uses_canonical_https_index(self):
+        guide = (self.root / "README.md").read_text()
+        self.assertIn('registry <- "https://www.hase62.jp/Neoantimon2-Converters/index.json"', guide)
+        self.assertIn("alias was observed redirecting through HTTP", guide)
+
     def test_pages_contains_no_workflows_or_tests(self):
         out = prepare(self.root, self.parent / "site")
         self.assertFalse((out / ".github").exists())

@@ -2,13 +2,16 @@
 
 Public registry: https://github.com/hase62/Neoantimon2-Converters
 
-Discovery: https://hase62.github.io/Neoantimon2-Converters/
+Discovery: https://www.hase62.jp/Neoantimon2-Converters/
 
-HTTPS index: https://hase62.github.io/Neoantimon2-Converters/index.json
+HTTPS index: https://www.hase62.jp/Neoantimon2-Converters/index.json
 
-The existing account Pages domain redirects these URLs over HTTPS to
-https://www.hase62.jp/Neoantimon2-Converters/ (also hosted by GitHub Pages).
-No new domain or non-GitHub backend is used.
+The canonical HTTPS domain is the existing account GitHub Pages domain.
+No new domain or non-GitHub backend is used. Use the canonical URLs above:
+the github.io alias was observed redirecting through HTTP before HTTPS,
+even after this project enabled HTTPS enforcement. That alias is not the
+recommended registry URL. Do not assume redirect hops are secure merely
+because an initial URL starts with HTTPS.
 
 Initial maintainer: @hase62. Public contributions use Pull Requests with
 maintainer review. See [LICENSING.md](LICENSING.md), [LICENSE](LICENSE) and
@@ -216,7 +219,7 @@ With Neoantimon2 installed and a completed local neo_project `p`, choose the
 exact version, inspect its public script and install dependencies yourself:
 
 ```r
-registry <- "https://hase62.github.io/Neoantimon2-Converters/index.json"
+registry <- "https://www.hase62.jp/Neoantimon2-Converters/index.json"
 a <- neo_analyze_external(p, "/path/to/output-X.tsv", policy,
   converter_id = "synthetic-example@1.0.0", registry = registry, trust = TRUE)
 neo_external_results(a)
