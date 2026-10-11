@@ -220,10 +220,14 @@ exact version, inspect its public script and install dependencies yourself:
 
 ```r
 registry <- "https://www.hase62.jp/Neoantimon2-Converters/index.json"
+# Explicit selection for the synthetic example only:
+policy <- list(mode = "external_rank", provider = "synthetic-model",
+  run_id = "demo-run-1", task = "external:synthetic_score", metric = "score",
+  score_direction = "higher_is_better")
 a <- neo_analyze_external(p, "/path/to/output-X.tsv", policy,
   converter_id = "synthetic-example@1.0.0", registry = registry, trust = TRUE)
-neo_external_results(a)
-neo_external_explain(a, candidate_id)
+results <- neo_external_results(a)
+neo_external_explain(a, results$candidate_id[[1L]])
 ```
 
 `policy` is the explicit external ranking policy described by Neoantimon2's
