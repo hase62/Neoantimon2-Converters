@@ -1,0 +1,21 @@
+{
+  "id": "bigmhc-im@1.0.0",
+  "runtime": "Python",
+  "script": "converters/bigmhc-im@1.0.0/converter.py",
+  "sha256": "cf699d3e763f1e471235305c1d76403098b027fd38d16701f6b4f4bbc8f56192",
+  "metadata": {
+    "output_schema": "external-prediction-1.0.0",
+    "description": "IM / BigMHC-IM; pinned schema; fixture-validated, predictor not executed",
+    "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+    "arguments": [
+      "--input",
+      "--output",
+      "--bundle"
+    ],
+    "license": "PolyForm-Noncommercial-1.0.0"
+  },
+  "supported_predictor_versions": [
+    "git-199e890fa69a63646730bcecea0a520e08ca4f02; schema commit 199e890fa69a63646730bcecea0a520e08ca4f02"
+  ],
+  "source_revision": "https://github.com/KarchinLab/bigmhc/tree/199e890fa69a63646730bcecea0a520e08ca4f02"
+}

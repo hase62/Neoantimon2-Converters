@@ -1,0 +1,21 @@
+{
+  "id": "prime-im@1.0.0",
+  "runtime": "Python",
+  "script": "converters/prime-im@1.0.0/converter.py",
+  "sha256": "86f7ca87e2ff8f20625ec6726115375632a112ffff99a23448b41670658bcac1",
+  "metadata": {
+    "output_schema": "external-prediction-1.0.0",
+    "description": "IM / PRIME; pinned schema; fixture-validated, predictor not executed",
+    "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+    "arguments": [
+      "--input",
+      "--output",
+      "--bundle"
+    ],
+    "license": "PolyForm-Noncommercial-1.0.0"
+  },
+  "supported_predictor_versions": [
+    "2.1; schema commit 7b18d4e11042141e7102f7c69be2b0e03d138dab"
+  ],
+  "source_revision": "https://github.com/GfellerLab/PRIME/tree/7b18d4e11042141e7102f7c69be2b0e03d138dab"
+}

@@ -1,0 +1,54 @@
+{
+  "method": "CapHLA-EL",
+  "converter_id": "caphla-el@1.0.0",
+  "provider_version": "2.0",
+  "model_version": "",
+  "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+  "source_commit": "33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831",
+  "category": "EL",
+  "MHC_class": "I",
+  "required_columns": [
+    "peptide",
+    "Allele Name",
+    "presentation_score"
+  ],
+  "metrics": [
+    [
+      "presentation_score",
+      "presentation_score",
+      "raw_score",
+      "raw",
+      "unitless",
+      "higher_is_better"
+    ]
+  ],
+  "scope": "peptide_hla",
+  "sources": [
+    "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/CapHLA.py",
+    "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/utils.py",
+    "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/test_out.csv",
+    "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/README.md",
+    "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/LICENSE"
+  ],
+  "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+  "fixtures_executed_predictor": false,
+  "license_notes": "Upstream MIT; no upstream code/data copied.",
+  "limitations": "Presentation only, human Class I A/B/C, 7\u201325 AA. affinity_score is ignored, not inverted or called nM. Class II output unsupported in this initial adapter.",
+  "citation": "Chang and Wu. CapHLA. Briefings in Bioinformatics (2025), doi:10.1093/bib/bbae595.",
+  "feasibility": "IMPLEMENTED",
+  "missing": {},
+  "input_sha256": "df877566d344d84a79b28d0d11d647029617249668d1a35b23006e94f2f45b46",
+  "expected_sha256": "cfc03ffdb1b863336983b431bcb39dbb3bcf2b5e4a5656195658ac940fc1be86",
+  "provider_id": "caphla-el",
+  "declared_schema_version_not_observed_executable": true,
+  "metric_columns": [
+    {
+      "native_column": "presentation_score",
+      "metric": "presentation_score",
+      "metric_kind": "raw_score",
+      "metric_semantics": "raw",
+      "unit": "unitless",
+      "direction": "higher_is_better"
+    }
+  ]
+}

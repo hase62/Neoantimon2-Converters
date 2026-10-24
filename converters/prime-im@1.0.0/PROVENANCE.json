@@ -1,0 +1,80 @@
+{
+  "method": "PRIME",
+  "converter_id": "prime-im@1.0.0",
+  "provider_version": "2.1",
+  "model_version": "",
+  "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+  "source_commit": "7b18d4e11042141e7102f7c69be2b0e03d138dab",
+  "category": "IM",
+  "MHC_class": "I",
+  "required_columns": {
+    "base": [
+      "Peptide",
+      "%Rank_bestAllele",
+      "Score_bestAllele",
+      "%RankBinding_bestAllele",
+      "BestAllele"
+    ],
+    "allele_prefixes": [
+      "%Rank_",
+      "Score_",
+      "%RankBinding_"
+    ]
+  },
+  "metrics": [
+    [
+      "%Rank_",
+      [
+        "immunogenicity_percentile",
+        "percentile_rank",
+        "external_percentile",
+        "percent",
+        "lower_is_better"
+      ]
+    ],
+    [
+      "Score_",
+      [
+        "immunogenicity_score",
+        "raw_score",
+        "raw",
+        "unitless",
+        "higher_is_better"
+      ]
+    ]
+  ],
+  "scope": "peptide_hla",
+  "sources": [
+    "https://github.com/GfellerLab/PRIME/blob/7b18d4e11042141e7102f7c69be2b0e03d138dab/test/out_compare.txt",
+    "https://github.com/GfellerLab/PRIME/blob/7b18d4e11042141e7102f7c69be2b0e03d138dab/README"
+  ],
+  "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+  "fixtures_executed_predictor": false,
+  "license_notes": "Upstream academic/noncommercial terms; no example prediction values or code redistributed.",
+  "limitations": "2.1 only. Emit every allele\u2019s IM rank and IM score; binding-related and best-allele summary columns are not imported. IM percentiles are external_percentile, never EL ranks.",
+  "citation": "Gfeller et al. Improved predictions of antigen presentation and TCR recognition with MixMHCpred2.2 and PRIME2.0. Cell Systems (2023).",
+  "feasibility": "IMPLEMENTED",
+  "missing": {},
+  "input_sha256": "408859dcef821a70423e213483c79336546eff2127676dade1c91f8729afb391",
+  "expected_sha256": "9ef3d4eabc039357fb9327b246084e3721bdf0c8b3c0a680ba2683e99b5a8d0d",
+  "provider_id": "prime-im",
+  "declared_schema_version_not_observed_executable": true,
+  "metric_columns": [
+    {
+      "native_prefix": "%Rank_",
+      "metric": "immunogenicity_percentile",
+      "metric_kind": "percentile_rank",
+      "metric_semantics": "external_percentile",
+      "unit": "percent",
+      "direction": "lower_is_better"
+    },
+    {
+      "native_prefix": "Score_",
+      "metric": "immunogenicity_score",
+      "metric_kind": "raw_score",
+      "metric_semantics": "raw",
+      "unit": "unitless",
+      "direction": "higher_is_better"
+    }
+  ]
+}

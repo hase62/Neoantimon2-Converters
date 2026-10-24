@@ -1,0 +1,21 @@
+{
+  "id": "deepimmuno-cnn@1.0.0",
+  "runtime": "Python",
+  "script": "converters/deepimmuno-cnn@1.0.0/converter.py",
+  "sha256": "d261fe9a04f85a828e3a65bda57a53941de5454cdf29a4bab52ce3471d595117",
+  "metadata": {
+    "output_schema": "external-prediction-1.0.0",
+    "description": "IM / DeepImmuno-CNN; pinned schema; fixture-validated, predictor not executed",
+    "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+    "arguments": [
+      "--input",
+      "--output",
+      "--bundle"
+    ],
+    "license": "PolyForm-Noncommercial-1.0.0"
+  },
+  "supported_predictor_versions": [
+    "git-df42ac5b6bddfe531268335e2dcb496559cd488b; schema commit df42ac5b6bddfe531268335e2dcb496559cd488b"
+  ],
+  "source_revision": "https://github.com/frankligy/DeepImmuno/tree/df42ac5b6bddfe531268335e2dcb496559cd488b"
+}

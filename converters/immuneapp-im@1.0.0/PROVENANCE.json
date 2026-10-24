@@ -1,0 +1,53 @@
+{
+  "method": "ImmuneApp-IM",
+  "converter_id": "immuneapp-im@1.0.0",
+  "provider_version": "git-320e021e2339ee75c7da0d010a736c4fabe906c8",
+  "model_version": "",
+  "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+  "source_commit": "320e021e2339ee75c7da0d010a736c4fabe906c8",
+  "category": "IM",
+  "MHC_class": "I",
+  "required_columns": [
+    "Allele",
+    "Peptide",
+    "Sample",
+    "Immunogenicity_score"
+  ],
+  "metrics": [
+    [
+      "Immunogenicity_score",
+      "immunogenicity_score",
+      "raw_score",
+      "raw",
+      "unitless",
+      "higher_is_better"
+    ]
+  ],
+  "scope": "peptide_hla",
+  "sources": [
+    "https://github.com/bsml320/ImmuneApp/blob/320e021e2339ee75c7da0d010a736c4fabe906c8/ImmuneApp_immunogenicity_prediction.py",
+    "https://github.com/bsml320/ImmuneApp/blob/320e021e2339ee75c7da0d010a736c4fabe906c8/README.md",
+    "https://github.com/bsml320/ImmuneApp/blob/320e021e2339ee75c7da0d010a736c4fabe906c8/LICENSE"
+  ],
+  "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+  "fixtures_executed_predictor": false,
+  "license_notes": "Upstream MIT; no upstream code/data copied.",
+  "limitations": "One upstream Sample group per file; repeated headers/groups rejected. Raw TSV Immunogenicity_score, not the percentage-formatted display DataFrame. Sample does not bind Neoantimon2 sample identities; intrinsic pMHC predictions can fan out.",
+  "citation": "ImmuneApp: HLA-I epitope prediction and immunopeptidome analysis. Software repository bsml320/ImmuneApp, commit 320e021e2339ee75c7da0d010a736c4fabe906c8; accessed 2026-10-24.",
+  "feasibility": "IMPLEMENTED",
+  "missing": {},
+  "input_sha256": "d4736b1659f5ff75e80f3c1dfc19adf67e1b663a7b5ef4c00c80fac6a3216c2b",
+  "expected_sha256": "23910a99c4e65aeca1760cb8cbbafdd2abf7994c10282e0e8f4e2af5d3f7d20d",
+  "provider_id": "immuneapp-im",
+  "declared_schema_version_not_observed_executable": true,
+  "metric_columns": [
+    {
+      "native_column": "Immunogenicity_score",
+      "metric": "immunogenicity_score",
+      "metric_kind": "raw_score",
+      "metric_semantics": "raw",
+      "unit": "unitless",
+      "direction": "higher_is_better"
+    }
+  ]
+}

@@ -4,6 +4,13 @@ Public registry: https://github.com/hase62/Neoantimon2-Converters
 
 Discovery: https://www.hase62.jp/Neoantimon2-Converters/
 
+This source includes nine pinned BA/EL/IM adapters (eight method families), plus
+the original synthetic example. See the [catalog](CATALOG.md),
+[offline external prediction walkthrough](EXTERNAL-QUICKSTART.md) and
+[machine-readable upstream research](UPSTREAM-RESEARCH.json).
+Local additions are not hosted until reviewed, merged and explicitly deployed.
+Converters adapt output files; they do not install or execute prediction engines.
+
 HTTPS index: https://www.hase62.jp/Neoantimon2-Converters/index.json
 
 The canonical HTTPS domain is the existing account GitHub Pages domain.

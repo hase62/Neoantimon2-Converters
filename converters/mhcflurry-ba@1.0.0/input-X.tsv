@@ -1,0 +1,5 @@
+peptide,allele,mhcflurry_affinity,mhcflurry_affinity_percentile
+SIINFEKLA,HLA-A*02:01,0,0
+SIINFEKLA,HLA-B*07:02,50,0.875
+NLVPMVATV,HLA-A*02:01,500,0.25
+NLVPMVATV,HLA-B*07:02,0.1,0.5

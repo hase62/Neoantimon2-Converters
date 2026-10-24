@@ -1,0 +1,5 @@
+# Output from PRIME (v2.1)
+# Alleles: A0201, B0702
+Peptide	%Rank_bestAllele	Score_bestAllele	%RankBinding_bestAllele	BestAllele	%Rank_A0201	Score_A0201	%RankBinding_A0201	%Rank_B0702	Score_B0702	%RankBinding_B0702
+SIINFEKLA	0	0	12.5	A0201	0	0	12.5	50	0.2	12.5
+NLVPMVATV	4	0.5	12.5	B0702	25	0.1	12.5	4	0.5	12.5

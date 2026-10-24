@@ -1,0 +1,412 @@
+[
+  {
+    "id": "bigmhc-el@1.0.0",
+    "name": "BigMHC-EL",
+    "family": "bigmhc",
+    "category": "EL",
+    "class": "I",
+    "predictor_version": "git-199e890fa69a63646730bcecea0a520e08ca4f02",
+    "model_version": "",
+    "provider": "bigmhc-el",
+    "parser": "long",
+    "delimiter": ",",
+    "peptide": "pep",
+    "hla": "mhc",
+    "required": [
+      "mhc",
+      "pep",
+      "len",
+      "BigMHC_EL"
+    ],
+    "metrics": [
+      [
+        "BigMHC_EL",
+        "score",
+        "raw_score",
+        "raw",
+        "unitless",
+        "higher_is_better"
+      ]
+    ],
+    "lengths": [
+      8,
+      15
+    ],
+    "source_repo": "KarchinLab/bigmhc",
+    "source_commit": "199e890fa69a63646730bcecea0a520e08ca4f02",
+    "optional": [
+      "tgt"
+    ],
+    "bounded": true,
+    "length_column": "len",
+    "task": "mhc1_presentation"
+  },
+  {
+    "id": "bigmhc-im@1.0.0",
+    "name": "BigMHC-IM",
+    "family": "bigmhc",
+    "category": "IM",
+    "class": "I",
+    "predictor_version": "git-199e890fa69a63646730bcecea0a520e08ca4f02",
+    "model_version": "",
+    "provider": "bigmhc-im",
+    "parser": "long",
+    "delimiter": ",",
+    "peptide": "pep",
+    "hla": "mhc",
+    "required": [
+      "mhc",
+      "pep",
+      "len",
+      "BigMHC_IM"
+    ],
+    "metrics": [
+      [
+        "BigMHC_IM",
+        "score",
+        "raw_score",
+        "raw",
+        "unitless",
+        "higher_is_better"
+      ]
+    ],
+    "lengths": [
+      8,
+      15
+    ],
+    "source_repo": "KarchinLab/bigmhc",
+    "source_commit": "199e890fa69a63646730bcecea0a520e08ca4f02",
+    "optional": [
+      "tgt"
+    ],
+    "bounded": true,
+    "length_column": "len",
+    "task": "external:immunogenicity"
+  },
+  {
+    "id": "prime-im@1.0.0",
+    "name": "PRIME",
+    "family": "PRIME",
+    "category": "IM",
+    "class": "I",
+    "predictor_version": "2.1",
+    "model_version": "",
+    "provider": "prime-im",
+    "parser": "wide",
+    "delimiter": "\t",
+    "peptide": "Peptide",
+    "hla": "mhc",
+    "required": [],
+    "metrics": [],
+    "lengths": [
+      8,
+      14
+    ],
+    "source_repo": "GfellerLab/PRIME",
+    "source_commit": "7b18d4e11042141e7102f7c69be2b0e03d138dab",
+    "banner": "PRIME (v2.1)",
+    "base_columns": [
+      "Peptide",
+      "%Rank_bestAllele",
+      "Score_bestAllele",
+      "%RankBinding_bestAllele",
+      "BestAllele"
+    ],
+    "allele_prefixes": [
+      "%Rank_",
+      "Score_",
+      "%RankBinding_"
+    ],
+    "wide_metrics": [
+      [
+        "%Rank_",
+        [
+          "immunogenicity_percentile",
+          "percentile_rank",
+          "external_percentile",
+          "percent",
+          "lower_is_better"
+        ]
+      ],
+      [
+        "Score_",
+        [
+          "immunogenicity_score",
+          "raw_score",
+          "raw",
+          "unitless",
+          "higher_is_better"
+        ]
+      ]
+    ],
+    "task": "external:immunogenicity"
+  },
+  {
+    "id": "deepimmuno-cnn@1.0.0",
+    "name": "DeepImmuno-CNN",
+    "family": "DeepImmuno",
+    "category": "IM",
+    "class": "I",
+    "predictor_version": "git-df42ac5b6bddfe531268335e2dcb496559cd488b",
+    "model_version": "",
+    "provider": "deepimmuno-cnn",
+    "parser": "long",
+    "delimiter": "\t",
+    "peptide": "peptide",
+    "hla": "HLA",
+    "required": [
+      "peptide",
+      "HLA",
+      "immunogenicity"
+    ],
+    "metrics": [
+      [
+        "immunogenicity",
+        "immunogenicity_score",
+        "raw_score",
+        "raw",
+        "unitless",
+        "higher_is_better"
+      ]
+    ],
+    "lengths": [
+      9,
+      10
+    ],
+    "source_repo": "frankligy/DeepImmuno",
+    "source_commit": "df42ac5b6bddfe531268335e2dcb496559cd488b",
+    "task": "external:immunogenicity",
+    "bounded": true
+  },
+  {
+    "id": "mixmhcpred-el@1.0.0",
+    "name": "MixMHCpred",
+    "family": "MixMHCpred",
+    "category": "EL",
+    "class": "I",
+    "predictor_version": "3.0",
+    "model_version": "",
+    "provider": "mixmhcpred-el",
+    "parser": "wide",
+    "delimiter": "\t",
+    "peptide": "Peptide",
+    "hla": "mhc",
+    "required": [],
+    "metrics": [],
+    "lengths": [
+      8,
+      15
+    ],
+    "source_repo": "GfellerLab/MixMHCpred",
+    "source_commit": "c29e4db17abe6266bfee72750efb713459540d18",
+    "banner": "MixMHCpred (v3.0)",
+    "base_columns": [
+      "Peptide",
+      "Score_bestAllele",
+      "BestAllele",
+      "%Rank_bestAllele"
+    ],
+    "allele_prefixes": [
+      "Score_",
+      "%Rank_"
+    ],
+    "wide_metrics": [
+      [
+        "%Rank_",
+        [
+          "presentation_percentile",
+          "percentile_rank",
+          "mhc_presentation_percentile",
+          "percent",
+          "lower_is_better"
+        ]
+      ]
+    ],
+    "task": "mhc1_presentation"
+  },
+  {
+    "id": "mixmhc2pred-el@1.0.0",
+    "name": "MixMHC2pred",
+    "family": "MixMHC2pred",
+    "category": "EL",
+    "class": "II",
+    "predictor_version": "2.1-beta1",
+    "model_version": "",
+    "provider": "mixmhc2pred-el",
+    "parser": "wide",
+    "delimiter": "\t",
+    "peptide": "Peptide",
+    "hla": "mhc",
+    "required": [],
+    "metrics": [],
+    "lengths": [
+      9,
+      25
+    ],
+    "source_repo": "GfellerLab/MixMHC2pred",
+    "source_commit": "eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7",
+    "banner": "MixMHC2pred (v2.1-beta1)",
+    "base_columns": [
+      "Peptide",
+      "Context",
+      "BestAllele",
+      "%Rank_best",
+      "Core_best",
+      "CoreP1_best",
+      "SubSpec_best"
+    ],
+    "allele_prefixes": [
+      "%Rank_",
+      "CoreP1_",
+      "SubSpec_"
+    ],
+    "wide_metrics": [
+      [
+        "%Rank_",
+        [
+          "presentation_percentile",
+          "percentile_rank",
+          "mhc_presentation_percentile",
+          "percent",
+          "lower_is_better"
+        ]
+      ]
+    ],
+    "task": "mhc2_presentation",
+    "context": true,
+    "missing": {
+      "NA": "unsupported"
+    }
+  },
+  {
+    "id": "caphla-el@1.0.0",
+    "name": "CapHLA-EL",
+    "family": "CapHLA",
+    "category": "EL",
+    "class": "I",
+    "predictor_version": "2.0",
+    "model_version": "",
+    "provider": "caphla-el",
+    "parser": "long",
+    "delimiter": ",",
+    "peptide": "peptide",
+    "hla": "Allele Name",
+    "required": [
+      "peptide",
+      "Allele Name",
+      "presentation_score"
+    ],
+    "metrics": [
+      [
+        "presentation_score",
+        "presentation_score",
+        "raw_score",
+        "raw",
+        "unitless",
+        "higher_is_better"
+      ]
+    ],
+    "lengths": [
+      7,
+      25
+    ],
+    "source_repo": "changyunjian/CapHLA",
+    "source_commit": "33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831",
+    "optional": [
+      "Annotation",
+      "affinity_score"
+    ],
+    "bounded": true,
+    "task": "mhc1_presentation"
+  },
+  {
+    "id": "immuneapp-im@1.0.0",
+    "name": "ImmuneApp-IM",
+    "family": "ImmuneApp",
+    "category": "IM",
+    "class": "I",
+    "predictor_version": "git-320e021e2339ee75c7da0d010a736c4fabe906c8",
+    "model_version": "",
+    "provider": "immuneapp-im",
+    "parser": "long",
+    "delimiter": "\t",
+    "peptide": "Peptide",
+    "hla": "Allele",
+    "required": [
+      "Allele",
+      "Peptide",
+      "Sample",
+      "Immunogenicity_score"
+    ],
+    "metrics": [
+      [
+        "Immunogenicity_score",
+        "immunogenicity_score",
+        "raw_score",
+        "raw",
+        "unitless",
+        "higher_is_better"
+      ]
+    ],
+    "lengths": [
+      8,
+      15
+    ],
+    "source_repo": "bsml320/ImmuneApp",
+    "source_commit": "320e021e2339ee75c7da0d010a736c4fabe906c8",
+    "sample_column": "Sample",
+    "task": "external:immunogenicity"
+  },
+  {
+    "id": "mhcflurry-ba@1.0.0",
+    "name": "MHCflurry-BA",
+    "family": "mhcflurry206",
+    "category": "BA",
+    "class": "I",
+    "predictor_version": "2.0.6",
+    "model_version": "",
+    "provider": "mhcflurry-ba",
+    "parser": "long",
+    "delimiter": ",",
+    "peptide": "peptide",
+    "hla": "allele",
+    "required": [
+      "peptide",
+      "allele",
+      "mhcflurry_affinity"
+    ],
+    "metrics": [
+      [
+        "mhcflurry_affinity",
+        "affinity_nM",
+        "raw_score",
+        "raw",
+        "nM",
+        "lower_is_better"
+      ],
+      [
+        "mhcflurry_affinity_percentile",
+        "affinity_percentile",
+        "percentile_rank",
+        "mhc_binding_percentile",
+        "percent",
+        "lower_is_better"
+      ]
+    ],
+    "lengths": [
+      8,
+      15
+    ],
+    "source_repo": "openvax/mhcflurry",
+    "source_commit": "e9263e842da394abd9b41e2418c58ce8e6662fb8",
+    "optional": [
+      "mhcflurry_affinity_percentile",
+      "mhcflurry_best_allele"
+    ],
+    "missing": {
+      "": "not_evaluated"
+    },
+    "best_column": "mhcflurry_best_allele",
+    "task": "mhc1_binding"
+  }
+]

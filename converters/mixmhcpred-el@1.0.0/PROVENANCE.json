@@ -1,0 +1,61 @@
+{
+  "method": "MixMHCpred",
+  "converter_id": "mixmhcpred-el@1.0.0",
+  "provider_version": "3.0",
+  "model_version": "",
+  "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+  "source_commit": "c29e4db17abe6266bfee72750efb713459540d18",
+  "category": "EL",
+  "MHC_class": "I",
+  "required_columns": {
+    "base": [
+      "Peptide",
+      "Score_bestAllele",
+      "BestAllele",
+      "%Rank_bestAllele"
+    ],
+    "allele_prefixes": [
+      "Score_",
+      "%Rank_"
+    ]
+  },
+  "metrics": [
+    [
+      "%Rank_",
+      [
+        "presentation_percentile",
+        "percentile_rank",
+        "mhc_presentation_percentile",
+        "percent",
+        "lower_is_better"
+      ]
+    ]
+  ],
+  "scope": "peptide_hla",
+  "sources": [
+    "https://github.com/GfellerLab/MixMHCpred/blob/c29e4db17abe6266bfee72750efb713459540d18/output/out_compare.txt",
+    "https://github.com/GfellerLab/MixMHCpred/blob/c29e4db17abe6266bfee72750efb713459540d18/code/panPredictor.py",
+    "https://github.com/GfellerLab/MixMHCpred/blob/c29e4db17abe6266bfee72750efb713459540d18/README.md"
+  ],
+  "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+  "fixtures_executed_predictor": false,
+  "license_notes": "Upstream academic/noncommercial terms; independently authored fixtures only.",
+  "limitations": "3.0 standard human A/B/C output only. Every allele rank retained. Extra output/custom sequences/other species unsupported; raw Score columns are not converted to nM.",
+  "citation": "Tadros et al. Genome Medicine (2025), doi:10.1186/s13073-025-01450-8.",
+  "feasibility": "IMPLEMENTED",
+  "missing": {},
+  "input_sha256": "f0fbc067ce6c873396af222cac45cd4d7204f890587c0666546a58aae604147f",
+  "expected_sha256": "02bc7f057161b71b435a8f4a181f087c291d74c2cb053efff34b0a700a886f8b",
+  "provider_id": "mixmhcpred-el",
+  "declared_schema_version_not_observed_executable": true,
+  "metric_columns": [
+    {
+      "native_prefix": "%Rank_",
+      "metric": "presentation_percentile",
+      "metric_kind": "percentile_rank",
+      "metric_semantics": "mhc_presentation_percentile",
+      "unit": "percent",
+      "direction": "lower_is_better"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "method": "BigMHC-EL",
+  "converter_id": "bigmhc-el@1.0.0",
+  "provider_version": "git-199e890fa69a63646730bcecea0a520e08ca4f02",
+  "model_version": "",
+  "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+  "source_commit": "199e890fa69a63646730bcecea0a520e08ca4f02",
+  "category": "EL",
+  "MHC_class": "I",
+  "required_columns": [
+    "mhc",
+    "pep",
+    "len",
+    "BigMHC_EL"
+  ],
+  "metrics": [
+    [
+      "BigMHC_EL",
+      "score",
+      "raw_score",
+      "raw",
+      "unitless",
+      "higher_is_better"
+    ]
+  ],
+  "scope": "peptide_hla",
+  "sources": [
+    "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/src/predict.py",
+    "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/src/cli.py",
+    "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/data/example1.csv.cmp",
+    "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/README.md",
+    "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/LICENSE"
+  ],
+  "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+  "fixtures_executed_predictor": false,
+  "license_notes": "BigMHC Academic License; upstream code/data not redistributed.",
+  "limitations": "Default human A/B/C output only. No attention/custom-model columns. Upstream fuzzy HLA matching is not reproduced; verify that the predictor used the exact intended allele.",
+  "citation": "Albert et al. Deep neural networks predict class I major histocompatibility complex epitope presentation and transfer learn neoepitope immunogenicity. Nature Machine Intelligence (2023).",
+  "feasibility": "IMPLEMENTED",
+  "missing": {},
+  "input_sha256": "9e0749b93cb5b07befb5fa177d761947beb284ace87dc4f2a9c661a4846d08dd",
+  "expected_sha256": "567342c375862f4d7e34a39ce8c8fb0b9f0d9031c5d8978104c8bc8390b4c453",
+  "provider_id": "bigmhc-el",
+  "declared_schema_version_not_observed_executable": true,
+  "metric_columns": [
+    {
+      "native_column": "BigMHC_EL",
+      "metric": "score",
+      "metric_kind": "raw_score",
+      "metric_semantics": "raw",
+      "unit": "unitless",
+      "direction": "higher_is_better"
+    }
+  ]
+}

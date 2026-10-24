@@ -2,6 +2,222 @@
   "schema_version": "1.0.0",
   "converters": [
     {
+      "id": "bigmhc-el@1.0.0",
+      "runtime": "Python",
+      "script": "converters/bigmhc-el@1.0.0/converter.py",
+      "sha256": "49f46ee9e3f76b530b095d3318b534bec14458dec0ca6df61d75984da05dbb68",
+      "metadata": {
+        "output_schema": "external-prediction-1.0.0",
+        "description": "EL / BigMHC-EL; pinned schema; fixture-validated, predictor not executed",
+        "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+        "arguments": [
+          "--input",
+          "--output",
+          "--bundle"
+        ],
+        "license": "PolyForm-Noncommercial-1.0.0"
+      },
+      "supported_predictor_versions": [
+        "git-199e890fa69a63646730bcecea0a520e08ca4f02; schema commit 199e890fa69a63646730bcecea0a520e08ca4f02"
+      ],
+      "source_revision": "https://github.com/KarchinLab/bigmhc/tree/199e890fa69a63646730bcecea0a520e08ca4f02",
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0
+    },
+    {
+      "id": "bigmhc-im@1.0.0",
+      "runtime": "Python",
+      "script": "converters/bigmhc-im@1.0.0/converter.py",
+      "sha256": "cf699d3e763f1e471235305c1d76403098b027fd38d16701f6b4f4bbc8f56192",
+      "metadata": {
+        "output_schema": "external-prediction-1.0.0",
+        "description": "IM / BigMHC-IM; pinned schema; fixture-validated, predictor not executed",
+        "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+        "arguments": [
+          "--input",
+          "--output",
+          "--bundle"
+        ],
+        "license": "PolyForm-Noncommercial-1.0.0"
+      },
+      "supported_predictor_versions": [
+        "git-199e890fa69a63646730bcecea0a520e08ca4f02; schema commit 199e890fa69a63646730bcecea0a520e08ca4f02"
+      ],
+      "source_revision": "https://github.com/KarchinLab/bigmhc/tree/199e890fa69a63646730bcecea0a520e08ca4f02",
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0
+    },
+    {
+      "id": "caphla-el@1.0.0",
+      "runtime": "Python",
+      "script": "converters/caphla-el@1.0.0/converter.py",
+      "sha256": "056f8517b48eea6fa6d0b0d1fceef6fd6335bce7faae827dc0c2edfd576a223a",
+      "metadata": {
+        "output_schema": "external-prediction-1.0.0",
+        "description": "EL / CapHLA-EL; pinned schema; fixture-validated, predictor not executed",
+        "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+        "arguments": [
+          "--input",
+          "--output",
+          "--bundle"
+        ],
+        "license": "PolyForm-Noncommercial-1.0.0"
+      },
+      "supported_predictor_versions": [
+        "2.0; schema commit 33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831"
+      ],
+      "source_revision": "https://github.com/changyunjian/CapHLA/tree/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831",
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0
+    },
+    {
+      "id": "deepimmuno-cnn@1.0.0",
+      "runtime": "Python",
+      "script": "converters/deepimmuno-cnn@1.0.0/converter.py",
+      "sha256": "d261fe9a04f85a828e3a65bda57a53941de5454cdf29a4bab52ce3471d595117",
+      "metadata": {
+        "output_schema": "external-prediction-1.0.0",
+        "description": "IM / DeepImmuno-CNN; pinned schema; fixture-validated, predictor not executed",
+        "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+        "arguments": [
+          "--input",
+          "--output",
+          "--bundle"
+        ],
+        "license": "PolyForm-Noncommercial-1.0.0"
+      },
+      "supported_predictor_versions": [
+        "git-df42ac5b6bddfe531268335e2dcb496559cd488b; schema commit df42ac5b6bddfe531268335e2dcb496559cd488b"
+      ],
+      "source_revision": "https://github.com/frankligy/DeepImmuno/tree/df42ac5b6bddfe531268335e2dcb496559cd488b",
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0
+    },
+    {
+      "id": "immuneapp-im@1.0.0",
+      "runtime": "Python",
+      "script": "converters/immuneapp-im@1.0.0/converter.py",
+      "sha256": "efbc27adf2f9ca88ce4a091255b05a8d16523702cb614bf80c54994a20bd7586",
+      "metadata": {
+        "output_schema": "external-prediction-1.0.0",
+        "description": "IM / ImmuneApp-IM; pinned schema; fixture-validated, predictor not executed",
+        "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+        "arguments": [
+          "--input",
+          "--output",
+          "--bundle"
+        ],
+        "license": "PolyForm-Noncommercial-1.0.0"
+      },
+      "supported_predictor_versions": [
+        "git-320e021e2339ee75c7da0d010a736c4fabe906c8; schema commit 320e021e2339ee75c7da0d010a736c4fabe906c8"
+      ],
+      "source_revision": "https://github.com/bsml320/ImmuneApp/tree/320e021e2339ee75c7da0d010a736c4fabe906c8",
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0
+    },
+    {
+      "id": "mhcflurry-ba@1.0.0",
+      "runtime": "Python",
+      "script": "converters/mhcflurry-ba@1.0.0/converter.py",
+      "sha256": "cfd9573ec3a48d1f3bd29e663b51e33eff2b19191d677efba224dd8b636ef5b5",
+      "metadata": {
+        "output_schema": "external-prediction-1.0.0",
+        "description": "BA / MHCflurry-BA; pinned schema; fixture-validated, predictor not executed",
+        "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+        "arguments": [
+          "--input",
+          "--output",
+          "--bundle"
+        ],
+        "license": "PolyForm-Noncommercial-1.0.0"
+      },
+      "supported_predictor_versions": [
+        "2.0.6; schema commit e9263e842da394abd9b41e2418c58ce8e6662fb8"
+      ],
+      "source_revision": "https://github.com/openvax/mhcflurry/tree/e9263e842da394abd9b41e2418c58ce8e6662fb8",
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0
+    },
+    {
+      "id": "mixmhc2pred-el@1.0.0",
+      "runtime": "Python",
+      "script": "converters/mixmhc2pred-el@1.0.0/converter.py",
+      "sha256": "7536dc78a5f31a44e86121fb26bdf4bb5cf4319d96d40d105ec9c858725a6224",
+      "metadata": {
+        "output_schema": "external-prediction-1.0.0",
+        "description": "EL / MixMHC2pred; pinned schema; fixture-validated, predictor not executed",
+        "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+        "arguments": [
+          "--input",
+          "--output",
+          "--bundle"
+        ],
+        "license": "PolyForm-Noncommercial-1.0.0"
+      },
+      "supported_predictor_versions": [
+        "2.1-beta1; schema commit eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7"
+      ],
+      "source_revision": "https://github.com/GfellerLab/MixMHC2pred/tree/eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7",
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0
+    },
+    {
+      "id": "mixmhcpred-el@1.0.0",
+      "runtime": "Python",
+      "script": "converters/mixmhcpred-el@1.0.0/converter.py",
+      "sha256": "c86fdcb62b5a5f1302b0c257f0cd743f82d063929b9464f153e612d94132dbf9",
+      "metadata": {
+        "output_schema": "external-prediction-1.0.0",
+        "description": "EL / MixMHCpred; pinned schema; fixture-validated, predictor not executed",
+        "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+        "arguments": [
+          "--input",
+          "--output",
+          "--bundle"
+        ],
+        "license": "PolyForm-Noncommercial-1.0.0"
+      },
+      "supported_predictor_versions": [
+        "3.0; schema commit c29e4db17abe6266bfee72750efb713459540d18"
+      ],
+      "source_revision": "https://github.com/GfellerLab/MixMHCpred/tree/c29e4db17abe6266bfee72750efb713459540d18",
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0
+    },
+    {
+      "id": "prime-im@1.0.0",
+      "runtime": "Python",
+      "script": "converters/prime-im@1.0.0/converter.py",
+      "sha256": "86f7ca87e2ff8f20625ec6726115375632a112ffff99a23448b41670658bcac1",
+      "metadata": {
+        "output_schema": "external-prediction-1.0.0",
+        "description": "IM / PRIME; pinned schema; fixture-validated, predictor not executed",
+        "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+        "arguments": [
+          "--input",
+          "--output",
+          "--bundle"
+        ],
+        "license": "PolyForm-Noncommercial-1.0.0"
+      },
+      "supported_predictor_versions": [
+        "2.1; schema commit 7b18d4e11042141e7102f7c69be2b0e03d138dab"
+      ],
+      "source_revision": "https://github.com/GfellerLab/PRIME/tree/7b18d4e11042141e7102f7c69be2b0e03d138dab",
+      "issue_url": null,
+      "ok": 0,
+      "ng": 0
+    },
+    {
       "id": "synthetic-example@1.0.0",
       "runtime": "R",
       "script": "converters/synthetic-example@1.0.0/converter.R",

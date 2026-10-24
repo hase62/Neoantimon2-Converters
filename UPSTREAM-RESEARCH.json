@@ -1,0 +1,656 @@
+{
+  "schema_version": "1.0.0",
+  "retrieval_date": "2026-10-24",
+  "implemented_converters": 9,
+  "implemented_method_families": 8,
+  "predictor_execution": false,
+  "candidates": [
+    {
+      "method": "BigMHC-EL",
+      "converter_id": "bigmhc-el@1.0.0",
+      "provider_version": "git-199e890fa69a63646730bcecea0a520e08ca4f02",
+      "model_version": "",
+      "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+      "source_commit": "199e890fa69a63646730bcecea0a520e08ca4f02",
+      "category": "EL",
+      "MHC_class": "I",
+      "required_columns": [
+        "mhc",
+        "pep",
+        "len",
+        "BigMHC_EL"
+      ],
+      "metrics": [
+        [
+          "BigMHC_EL",
+          "score",
+          "raw_score",
+          "raw",
+          "unitless",
+          "higher_is_better"
+        ]
+      ],
+      "scope": "peptide_hla",
+      "sources": [
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/src/predict.py",
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/src/cli.py",
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/data/example1.csv.cmp",
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/README.md",
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/LICENSE"
+      ],
+      "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+      "fixtures_executed_predictor": false,
+      "license_notes": "BigMHC Academic License; upstream code/data not redistributed.",
+      "limitations": "Default human A/B/C output only. No attention/custom-model columns. Upstream fuzzy HLA matching is not reproduced; verify that the predictor used the exact intended allele.",
+      "citation": "Albert et al. Deep neural networks predict class I major histocompatibility complex epitope presentation and transfer learn neoepitope immunogenicity. Nature Machine Intelligence (2023).",
+      "feasibility": "IMPLEMENTED",
+      "missing": {},
+      "input_sha256": "9e0749b93cb5b07befb5fa177d761947beb284ace87dc4f2a9c661a4846d08dd",
+      "expected_sha256": "567342c375862f4d7e34a39ce8c8fb0b9f0d9031c5d8978104c8bc8390b4c453",
+      "provider_id": "bigmhc-el",
+      "declared_schema_version_not_observed_executable": true,
+      "metric_columns": [
+        {
+          "native_column": "BigMHC_EL",
+          "metric": "score",
+          "metric_kind": "raw_score",
+          "metric_semantics": "raw",
+          "unit": "unitless",
+          "direction": "higher_is_better"
+        }
+      ]
+    },
+    {
+      "method": "BigMHC-IM",
+      "converter_id": "bigmhc-im@1.0.0",
+      "provider_version": "git-199e890fa69a63646730bcecea0a520e08ca4f02",
+      "model_version": "",
+      "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+      "source_commit": "199e890fa69a63646730bcecea0a520e08ca4f02",
+      "category": "IM",
+      "MHC_class": "I",
+      "required_columns": [
+        "mhc",
+        "pep",
+        "len",
+        "BigMHC_IM"
+      ],
+      "metrics": [
+        [
+          "BigMHC_IM",
+          "score",
+          "raw_score",
+          "raw",
+          "unitless",
+          "higher_is_better"
+        ]
+      ],
+      "scope": "peptide_hla",
+      "sources": [
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/src/predict.py",
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/src/cli.py",
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/data/example1.csv.cmp",
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/README.md",
+        "https://github.com/KarchinLab/bigmhc/blob/199e890fa69a63646730bcecea0a520e08ca4f02/LICENSE"
+      ],
+      "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+      "fixtures_executed_predictor": false,
+      "license_notes": "BigMHC Academic License; upstream code/data not redistributed.",
+      "limitations": "Default human A/B/C output only. No attention/custom-model columns. Upstream fuzzy HLA matching is not reproduced; verify that the predictor used the exact intended allele.",
+      "citation": "Albert et al. Deep neural networks predict class I major histocompatibility complex epitope presentation and transfer learn neoepitope immunogenicity. Nature Machine Intelligence (2023).",
+      "feasibility": "IMPLEMENTED",
+      "missing": {},
+      "input_sha256": "62414cd488f97c32435f94eff8acf52ee83cf5ee66f331b9c44ec9cfcee611d0",
+      "expected_sha256": "85ef3f7ab2cdff2bfac4401669fc27707e03629316f0f7c919ac92c3bda11897",
+      "provider_id": "bigmhc-im",
+      "declared_schema_version_not_observed_executable": true,
+      "metric_columns": [
+        {
+          "native_column": "BigMHC_IM",
+          "metric": "score",
+          "metric_kind": "raw_score",
+          "metric_semantics": "raw",
+          "unit": "unitless",
+          "direction": "higher_is_better"
+        }
+      ]
+    },
+    {
+      "method": "PRIME",
+      "converter_id": "prime-im@1.0.0",
+      "provider_version": "2.1",
+      "model_version": "",
+      "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+      "source_commit": "7b18d4e11042141e7102f7c69be2b0e03d138dab",
+      "category": "IM",
+      "MHC_class": "I",
+      "required_columns": {
+        "base": [
+          "Peptide",
+          "%Rank_bestAllele",
+          "Score_bestAllele",
+          "%RankBinding_bestAllele",
+          "BestAllele"
+        ],
+        "allele_prefixes": [
+          "%Rank_",
+          "Score_",
+          "%RankBinding_"
+        ]
+      },
+      "metrics": [
+        [
+          "%Rank_",
+          [
+            "immunogenicity_percentile",
+            "percentile_rank",
+            "external_percentile",
+            "percent",
+            "lower_is_better"
+          ]
+        ],
+        [
+          "Score_",
+          [
+            "immunogenicity_score",
+            "raw_score",
+            "raw",
+            "unitless",
+            "higher_is_better"
+          ]
+        ]
+      ],
+      "scope": "peptide_hla",
+      "sources": [
+        "https://github.com/GfellerLab/PRIME/blob/7b18d4e11042141e7102f7c69be2b0e03d138dab/test/out_compare.txt",
+        "https://github.com/GfellerLab/PRIME/blob/7b18d4e11042141e7102f7c69be2b0e03d138dab/README"
+      ],
+      "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+      "fixtures_executed_predictor": false,
+      "license_notes": "Upstream academic/noncommercial terms; no example prediction values or code redistributed.",
+      "limitations": "2.1 only. Emit every allele\u2019s IM rank and IM score; binding-related and best-allele summary columns are not imported. IM percentiles are external_percentile, never EL ranks.",
+      "citation": "Gfeller et al. Improved predictions of antigen presentation and TCR recognition with MixMHCpred2.2 and PRIME2.0. Cell Systems (2023).",
+      "feasibility": "IMPLEMENTED",
+      "missing": {},
+      "input_sha256": "408859dcef821a70423e213483c79336546eff2127676dade1c91f8729afb391",
+      "expected_sha256": "9ef3d4eabc039357fb9327b246084e3721bdf0c8b3c0a680ba2683e99b5a8d0d",
+      "provider_id": "prime-im",
+      "declared_schema_version_not_observed_executable": true,
+      "metric_columns": [
+        {
+          "native_prefix": "%Rank_",
+          "metric": "immunogenicity_percentile",
+          "metric_kind": "percentile_rank",
+          "metric_semantics": "external_percentile",
+          "unit": "percent",
+          "direction": "lower_is_better"
+        },
+        {
+          "native_prefix": "Score_",
+          "metric": "immunogenicity_score",
+          "metric_kind": "raw_score",
+          "metric_semantics": "raw",
+          "unit": "unitless",
+          "direction": "higher_is_better"
+        }
+      ]
+    },
+    {
+      "method": "DeepImmuno-CNN",
+      "converter_id": "deepimmuno-cnn@1.0.0",
+      "provider_version": "git-df42ac5b6bddfe531268335e2dcb496559cd488b",
+      "model_version": "",
+      "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+      "source_commit": "df42ac5b6bddfe531268335e2dcb496559cd488b",
+      "category": "IM",
+      "MHC_class": "I",
+      "required_columns": [
+        "peptide",
+        "HLA",
+        "immunogenicity"
+      ],
+      "metrics": [
+        [
+          "immunogenicity",
+          "immunogenicity_score",
+          "raw_score",
+          "raw",
+          "unitless",
+          "higher_is_better"
+        ]
+      ],
+      "scope": "peptide_hla",
+      "sources": [
+        "https://github.com/frankligy/DeepImmuno/blob/df42ac5b6bddfe531268335e2dcb496559cd488b/deepimmuno-cnn.py",
+        "https://github.com/frankligy/DeepImmuno/blob/df42ac5b6bddfe531268335e2dcb496559cd488b/README.md",
+        "https://github.com/frankligy/DeepImmuno/blob/df42ac5b6bddfe531268335e2dcb496559cd488b/LICENSE"
+      ],
+      "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+      "fixtures_executed_predictor": false,
+      "license_notes": "Upstream MIT; no upstream code/data copied.",
+      "limitations": "CNN multiple mode only, 9/10-mers, human A/B/C. Not GAN output. No HLA rescue, allele truncation or calibrated-probability claim; users must confirm exact supported upstream allele.",
+      "citation": "Li et al. DeepImmuno. Briefings in Bioinformatics (2021), doi:10.1093/bib/bbab160.",
+      "feasibility": "IMPLEMENTED",
+      "missing": {},
+      "input_sha256": "908885ccec8219797a12478a2d66c945f2c1848aee815d05760e836a84d1c5fe",
+      "expected_sha256": "b31d81c6fc46d6a235c21042234ecda42be006bbe1acdc4478558984d344df08",
+      "provider_id": "deepimmuno-cnn",
+      "declared_schema_version_not_observed_executable": true,
+      "metric_columns": [
+        {
+          "native_column": "immunogenicity",
+          "metric": "immunogenicity_score",
+          "metric_kind": "raw_score",
+          "metric_semantics": "raw",
+          "unit": "unitless",
+          "direction": "higher_is_better"
+        }
+      ]
+    },
+    {
+      "method": "MixMHCpred",
+      "converter_id": "mixmhcpred-el@1.0.0",
+      "provider_version": "3.0",
+      "model_version": "",
+      "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+      "source_commit": "c29e4db17abe6266bfee72750efb713459540d18",
+      "category": "EL",
+      "MHC_class": "I",
+      "required_columns": {
+        "base": [
+          "Peptide",
+          "Score_bestAllele",
+          "BestAllele",
+          "%Rank_bestAllele"
+        ],
+        "allele_prefixes": [
+          "Score_",
+          "%Rank_"
+        ]
+      },
+      "metrics": [
+        [
+          "%Rank_",
+          [
+            "presentation_percentile",
+            "percentile_rank",
+            "mhc_presentation_percentile",
+            "percent",
+            "lower_is_better"
+          ]
+        ]
+      ],
+      "scope": "peptide_hla",
+      "sources": [
+        "https://github.com/GfellerLab/MixMHCpred/blob/c29e4db17abe6266bfee72750efb713459540d18/output/out_compare.txt",
+        "https://github.com/GfellerLab/MixMHCpred/blob/c29e4db17abe6266bfee72750efb713459540d18/code/panPredictor.py",
+        "https://github.com/GfellerLab/MixMHCpred/blob/c29e4db17abe6266bfee72750efb713459540d18/README.md"
+      ],
+      "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+      "fixtures_executed_predictor": false,
+      "license_notes": "Upstream academic/noncommercial terms; independently authored fixtures only.",
+      "limitations": "3.0 standard human A/B/C output only. Every allele rank retained. Extra output/custom sequences/other species unsupported; raw Score columns are not converted to nM.",
+      "citation": "Tadros et al. Genome Medicine (2025), doi:10.1186/s13073-025-01450-8.",
+      "feasibility": "IMPLEMENTED",
+      "missing": {},
+      "input_sha256": "f0fbc067ce6c873396af222cac45cd4d7204f890587c0666546a58aae604147f",
+      "expected_sha256": "02bc7f057161b71b435a8f4a181f087c291d74c2cb053efff34b0a700a886f8b",
+      "provider_id": "mixmhcpred-el",
+      "declared_schema_version_not_observed_executable": true,
+      "metric_columns": [
+        {
+          "native_prefix": "%Rank_",
+          "metric": "presentation_percentile",
+          "metric_kind": "percentile_rank",
+          "metric_semantics": "mhc_presentation_percentile",
+          "unit": "percent",
+          "direction": "lower_is_better"
+        }
+      ]
+    },
+    {
+      "method": "MixMHC2pred",
+      "converter_id": "mixmhc2pred-el@1.0.0",
+      "provider_version": "2.1-beta1",
+      "model_version": "",
+      "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+      "source_commit": "eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7",
+      "category": "EL",
+      "MHC_class": "II",
+      "required_columns": {
+        "base": [
+          "Peptide",
+          "Context",
+          "BestAllele",
+          "%Rank_best",
+          "Core_best",
+          "CoreP1_best",
+          "SubSpec_best"
+        ],
+        "allele_prefixes": [
+          "%Rank_",
+          "CoreP1_",
+          "SubSpec_"
+        ]
+      },
+      "metrics": [
+        [
+          "%Rank_",
+          [
+            "presentation_percentile",
+            "percentile_rank",
+            "mhc_presentation_percentile",
+            "percent",
+            "lower_is_better"
+          ]
+        ]
+      ],
+      "scope": "peptide_hla",
+      "sources": [
+        "https://github.com/GfellerLab/MixMHC2pred/blob/eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7/test/out_noContext_compare.txt",
+        "https://github.com/GfellerLab/MixMHC2pred/blob/eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7/README.md",
+        "https://github.com/GfellerLab/MixMHC2pred/blob/eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7/LICENSE"
+      ],
+      "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+      "fixtures_executed_predictor": false,
+      "license_notes": "Upstream academic/noncommercial terms; independently authored fixtures only.",
+      "limitations": "2.1-beta1 standard no-context output only. Context-dependent/extra-output modes rejected. Explicit DP/DQ pairs preserved. DR beta shorthand requires one explicitly declared DRA*01:01~DRB presenter in the bundle; absent/ambiguous/different alpha rejected. NA becomes unsupported; invalid AA cannot be represented and fails.",
+      "citation": "Racle et al. Machine learning predictions of MHC-II specificities reveal alternative binding mode of class II epitopes. Immunity (2023).",
+      "feasibility": "IMPLEMENTED",
+      "missing": {
+        "NA": "unsupported"
+      },
+      "input_sha256": "45c1a3582d3b19e973e632d7d498dd211ec7017c1fbef935b949f4164ebc8733",
+      "expected_sha256": "5c2857ef3280935bb7e72dc203a83f62e6e6906c0736a2e45a4bd218b72023a3",
+      "provider_id": "mixmhc2pred-el",
+      "declared_schema_version_not_observed_executable": true,
+      "metric_columns": [
+        {
+          "native_prefix": "%Rank_",
+          "metric": "presentation_percentile",
+          "metric_kind": "percentile_rank",
+          "metric_semantics": "mhc_presentation_percentile",
+          "unit": "percent",
+          "direction": "lower_is_better"
+        }
+      ]
+    },
+    {
+      "method": "CapHLA-EL",
+      "converter_id": "caphla-el@1.0.0",
+      "provider_version": "2.0",
+      "model_version": "",
+      "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+      "source_commit": "33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831",
+      "category": "EL",
+      "MHC_class": "I",
+      "required_columns": [
+        "peptide",
+        "Allele Name",
+        "presentation_score"
+      ],
+      "metrics": [
+        [
+          "presentation_score",
+          "presentation_score",
+          "raw_score",
+          "raw",
+          "unitless",
+          "higher_is_better"
+        ]
+      ],
+      "scope": "peptide_hla",
+      "sources": [
+        "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/CapHLA.py",
+        "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/utils.py",
+        "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/test_out.csv",
+        "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/README.md",
+        "https://github.com/changyunjian/CapHLA/blob/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831/LICENSE"
+      ],
+      "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+      "fixtures_executed_predictor": false,
+      "license_notes": "Upstream MIT; no upstream code/data copied.",
+      "limitations": "Presentation only, human Class I A/B/C, 7\u201325 AA. affinity_score is ignored, not inverted or called nM. Class II output unsupported in this initial adapter.",
+      "citation": "Chang and Wu. CapHLA. Briefings in Bioinformatics (2025), doi:10.1093/bib/bbae595.",
+      "feasibility": "IMPLEMENTED",
+      "missing": {},
+      "input_sha256": "df877566d344d84a79b28d0d11d647029617249668d1a35b23006e94f2f45b46",
+      "expected_sha256": "cfc03ffdb1b863336983b431bcb39dbb3bcf2b5e4a5656195658ac940fc1be86",
+      "provider_id": "caphla-el",
+      "declared_schema_version_not_observed_executable": true,
+      "metric_columns": [
+        {
+          "native_column": "presentation_score",
+          "metric": "presentation_score",
+          "metric_kind": "raw_score",
+          "metric_semantics": "raw",
+          "unit": "unitless",
+          "direction": "higher_is_better"
+        }
+      ]
+    },
+    {
+      "method": "ImmuneApp-IM",
+      "converter_id": "immuneapp-im@1.0.0",
+      "provider_version": "git-320e021e2339ee75c7da0d010a736c4fabe906c8",
+      "model_version": "",
+      "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+      "source_commit": "320e021e2339ee75c7da0d010a736c4fabe906c8",
+      "category": "IM",
+      "MHC_class": "I",
+      "required_columns": [
+        "Allele",
+        "Peptide",
+        "Sample",
+        "Immunogenicity_score"
+      ],
+      "metrics": [
+        [
+          "Immunogenicity_score",
+          "immunogenicity_score",
+          "raw_score",
+          "raw",
+          "unitless",
+          "higher_is_better"
+        ]
+      ],
+      "scope": "peptide_hla",
+      "sources": [
+        "https://github.com/bsml320/ImmuneApp/blob/320e021e2339ee75c7da0d010a736c4fabe906c8/ImmuneApp_immunogenicity_prediction.py",
+        "https://github.com/bsml320/ImmuneApp/blob/320e021e2339ee75c7da0d010a736c4fabe906c8/README.md",
+        "https://github.com/bsml320/ImmuneApp/blob/320e021e2339ee75c7da0d010a736c4fabe906c8/LICENSE"
+      ],
+      "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+      "fixtures_executed_predictor": false,
+      "license_notes": "Upstream MIT; no upstream code/data copied.",
+      "limitations": "One upstream Sample group per file; repeated headers/groups rejected. Raw TSV Immunogenicity_score, not the percentage-formatted display DataFrame. Sample does not bind Neoantimon2 sample identities; intrinsic pMHC predictions can fan out.",
+      "citation": "ImmuneApp: HLA-I epitope prediction and immunopeptidome analysis. Software repository bsml320/ImmuneApp, commit 320e021e2339ee75c7da0d010a736c4fabe906c8; accessed 2026-10-24.",
+      "feasibility": "IMPLEMENTED",
+      "missing": {},
+      "input_sha256": "d4736b1659f5ff75e80f3c1dfc19adf67e1b663a7b5ef4c00c80fac6a3216c2b",
+      "expected_sha256": "23910a99c4e65aeca1760cb8cbbafdd2abf7994c10282e0e8f4e2af5d3f7d20d",
+      "provider_id": "immuneapp-im",
+      "declared_schema_version_not_observed_executable": true,
+      "metric_columns": [
+        {
+          "native_column": "Immunogenicity_score",
+          "metric": "immunogenicity_score",
+          "metric_kind": "raw_score",
+          "metric_semantics": "raw",
+          "unit": "unitless",
+          "direction": "higher_is_better"
+        }
+      ]
+    },
+    {
+      "method": "MHCflurry-BA",
+      "converter_id": "mhcflurry-ba@1.0.0",
+      "provider_version": "2.0.6",
+      "model_version": "",
+      "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+      "source_commit": "e9263e842da394abd9b41e2418c58ce8e6662fb8",
+      "category": "BA",
+      "MHC_class": "I",
+      "required_columns": [
+        "peptide",
+        "allele",
+        "mhcflurry_affinity"
+      ],
+      "metrics": [
+        [
+          "mhcflurry_affinity",
+          "affinity_nM",
+          "raw_score",
+          "raw",
+          "nM",
+          "lower_is_better"
+        ],
+        [
+          "mhcflurry_affinity_percentile",
+          "affinity_percentile",
+          "percentile_rank",
+          "mhc_binding_percentile",
+          "percent",
+          "lower_is_better"
+        ]
+      ],
+      "scope": "peptide_hla",
+      "sources": [
+        "https://github.com/openvax/mhcflurry/blob/e9263e842da394abd9b41e2418c58ce8e6662fb8/mhcflurry/predict_command.py",
+        "https://github.com/openvax/mhcflurry/blob/e9263e842da394abd9b41e2418c58ce8e6662fb8/mhcflurry/version.py"
+      ],
+      "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+      "fixtures_executed_predictor": false,
+      "license_notes": "Upstream source files declare Apache-2.0; no upstream code/models copied.",
+      "limitations": "2.0.6 --affinity-only, default column prefix and one allele per row only. Genotypes/best-allele mismatches rejected. Empty upstream NaN fields become not_evaluated with no asserted cause. Optional affinity percentile remains a separate BA channel; no presentation score interpretation.",
+      "citation": "O\u2019Donnell et al. MHCflurry 2.0. Cell Systems (2020).",
+      "feasibility": "IMPLEMENTED",
+      "missing": {
+        "": "not_evaluated"
+      },
+      "input_sha256": "5fbef8091d9861c6d1948eb076237eba1894a7abff680da2a7e74b1b0e1af629",
+      "expected_sha256": "1aec16ff99226f8b1825b4997edd2de8de36bebd09b00627c527ea63d7bbd360",
+      "provider_id": "mhcflurry-ba",
+      "declared_schema_version_not_observed_executable": true,
+      "metric_columns": [
+        {
+          "native_column": "mhcflurry_affinity",
+          "metric": "affinity_nM",
+          "metric_kind": "raw_score",
+          "metric_semantics": "raw",
+          "unit": "nM",
+          "direction": "lower_is_better"
+        },
+        {
+          "native_column": "mhcflurry_affinity_percentile",
+          "metric": "affinity_percentile",
+          "metric_kind": "percentile_rank",
+          "metric_semantics": "mhc_binding_percentile",
+          "unit": "percent",
+          "direction": "lower_is_better"
+        }
+      ]
+    },
+    {
+      "method": "IEDB Class I Immunogenicity",
+      "feasibility": "NOT_IMPLEMENTED",
+      "reason": "Official help establishes peptide/length/score display and masking dependence, but an exact pinned downloadable output schema/version was not immediately established. No form submission or gated software download.",
+      "sources": [
+        "https://tools.iedb.org/immunogenicity/help/"
+      ],
+      "fixture_provenance": "NO_COMMITTED_PREDICTION_FIXTURE",
+      "provider_version": null,
+      "source_commit": null,
+      "category": "IM",
+      "MHC_class": "I",
+      "required_columns": [
+        "peptide",
+        "length",
+        "score (exact export names/case not established)"
+      ],
+      "scope": "peptide under an explicitly fixed mask; not implemented",
+      "metric_meaning": "position/masking-based score",
+      "unit": "unitless",
+      "direction": "higher_is_better",
+      "license_notes": "Gated standalone download not obtained; no upstream software/data redistributed",
+      "known_uncertainties": [
+        "No pinned text-output schema",
+        "Mask configuration must be explicit"
+      ]
+    },
+    {
+      "method": "MHCnuggets",
+      "feasibility": "NOT_IMPLEMENTED",
+      "reason": "Native peptide,ic50 output omits allele identity; no guess or new input-wrapper system added.",
+      "sources": [
+        "https://github.com/KarchinLab/mhcnuggets"
+      ],
+      "fixture_provenance": "NO_COMMITTED_PREDICTION_FIXTURE",
+      "provider_version": "git-b666fea3a54a1d357efba4ea4d8550ce5dd50aba",
+      "source_commit": "b666fea3a54a1d357efba4ea4d8550ce5dd50aba",
+      "category": "BA",
+      "MHC_class": "I/II upstream",
+      "required_columns": [
+        "peptide",
+        "ic50"
+      ],
+      "metric_meaning": "predicted IC50",
+      "unit": "nM",
+      "direction": "lower_is_better",
+      "scope": "pMHC but native file omits MHC",
+      "license_notes": "Academic upstream license; no upstream data/code copied",
+      "known_uncertainties": [
+        "No per-row allele identity; explicit input context would be needed"
+      ]
+    },
+    {
+      "method": "CapHLA-BA",
+      "feasibility": "NOT_IMPLEMENTED",
+      "reason": "Native affinity_score is untransformed model output; nM conversion/direction not established from immediately available serializer code. EL branch is supported.",
+      "sources": [
+        "https://github.com/changyunjian/CapHLA"
+      ],
+      "fixture_provenance": "NO_COMMITTED_PREDICTION_FIXTURE",
+      "provider_version": "2.0",
+      "source_commit": "33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831",
+      "category": "BA",
+      "MHC_class": "I/II upstream",
+      "required_columns": [
+        "peptide",
+        "Allele Name",
+        "presentation_score",
+        "affinity_score"
+      ],
+      "metric_meaning": "raw affinity-model output, not demonstrated nM",
+      "unit": "unitless (unresolved exact scale)",
+      "direction": null,
+      "scope": "peptide_hla",
+      "license_notes": "MIT upstream; no code/data copied",
+      "known_uncertainties": [
+        "Affinity scale/direction not resolved from short serializer review"
+      ]
+    },
+    {
+      "method": "NetMHCpan-BA",
+      "feasibility": "NOT_IMPLEMENTED",
+      "reason": "Considered as BA alternative; MHCflurry pinned affinity-only CSV offered a smaller explicit schema. No converter registered.",
+      "sources": [
+        "https://services.healthtech.dtu.dk/services/NetMHCpan-4.1/"
+      ],
+      "fixture_provenance": "NO_COMMITTED_PREDICTION_FIXTURE",
+      "provider_version": "4.1 (considered only)",
+      "source_commit": null,
+      "category": "BA",
+      "MHC_class": "I",
+      "required_columns": null,
+      "metric_meaning": "predicted affinity when BA option enabled",
+      "unit": "nM",
+      "direction": "lower_is_better",
+      "scope": "peptide_hla",
+      "license_notes": "Vendor licensed; no downloads or redistribution",
+      "known_uncertainties": [
+        "Not selected; exact BA table not investigated further"
+      ]
+    }
+  ]
+}

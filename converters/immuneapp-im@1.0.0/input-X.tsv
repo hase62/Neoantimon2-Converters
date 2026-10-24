@@ -1,0 +1,5 @@
+Allele	Peptide	Sample	Immunogenicity_score
+HLA-A*02:01	SIINFEKLA	synthetic-group	0
+HLA-B*07:02	SIINFEKLA	synthetic-group	0.875
+HLA-A*02:01	NLVPMVATV	synthetic-group	0.25
+HLA-B*07:02	NLVPMVATV	synthetic-group	0.5

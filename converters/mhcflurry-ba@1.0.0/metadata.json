@@ -1,0 +1,21 @@
+{
+  "id": "mhcflurry-ba@1.0.0",
+  "runtime": "Python",
+  "script": "converters/mhcflurry-ba@1.0.0/converter.py",
+  "sha256": "cfd9573ec3a48d1f3bd29e663b51e33eff2b19191d677efba224dd8b636ef5b5",
+  "metadata": {
+    "output_schema": "external-prediction-1.0.0",
+    "description": "BA / MHCflurry-BA; pinned schema; fixture-validated, predictor not executed",
+    "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+    "arguments": [
+      "--input",
+      "--output",
+      "--bundle"
+    ],
+    "license": "PolyForm-Noncommercial-1.0.0"
+  },
+  "supported_predictor_versions": [
+    "2.0.6; schema commit e9263e842da394abd9b41e2418c58ce8e6662fb8"
+  ],
+  "source_revision": "https://github.com/openvax/mhcflurry/tree/e9263e842da394abd9b41e2418c58ce8e6662fb8"
+}

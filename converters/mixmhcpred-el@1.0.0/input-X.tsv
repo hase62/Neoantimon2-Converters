@@ -1,0 +1,5 @@
+# Output from MixMHCpred (v3.0)
+# Alleles: A0201, B0702
+Peptide	Score_bestAllele	BestAllele	%Rank_bestAllele	Score_A0201	%Rank_A0201	Score_B0702	%Rank_B0702
+SIINFEKLA	0	A0201	0	0	0	0.2	50
+NLVPMVATV	0.5	B0702	4	0.1	25	0.5	4

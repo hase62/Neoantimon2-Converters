@@ -1,0 +1,21 @@
+{
+  "id": "mixmhcpred-el@1.0.0",
+  "runtime": "Python",
+  "script": "converters/mixmhcpred-el@1.0.0/converter.py",
+  "sha256": "c86fdcb62b5a5f1302b0c257f0cd743f82d063929b9464f153e612d94132dbf9",
+  "metadata": {
+    "output_schema": "external-prediction-1.0.0",
+    "description": "EL / MixMHCpred; pinned schema; fixture-validated, predictor not executed",
+    "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+    "arguments": [
+      "--input",
+      "--output",
+      "--bundle"
+    ],
+    "license": "PolyForm-Noncommercial-1.0.0"
+  },
+  "supported_predictor_versions": [
+    "3.0; schema commit c29e4db17abe6266bfee72750efb713459540d18"
+  ],
+  "source_revision": "https://github.com/GfellerLab/MixMHCpred/tree/c29e4db17abe6266bfee72750efb713459540d18"
+}

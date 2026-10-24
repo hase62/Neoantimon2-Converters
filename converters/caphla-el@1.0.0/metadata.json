@@ -1,0 +1,21 @@
+{
+  "id": "caphla-el@1.0.0",
+  "runtime": "Python",
+  "script": "converters/caphla-el@1.0.0/converter.py",
+  "sha256": "056f8517b48eea6fa6d0b0d1fceef6fd6335bce7faae827dc0c2edfd576a223a",
+  "metadata": {
+    "output_schema": "external-prediction-1.0.0",
+    "description": "EL / CapHLA-EL; pinned schema; fixture-validated, predictor not executed",
+    "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+    "arguments": [
+      "--input",
+      "--output",
+      "--bundle"
+    ],
+    "license": "PolyForm-Noncommercial-1.0.0"
+  },
+  "supported_predictor_versions": [
+    "2.0; schema commit 33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831"
+  ],
+  "source_revision": "https://github.com/changyunjian/CapHLA/tree/33ebdd6ce6dadbbb1c66b026ce4b5d81dbf3a831"
+}

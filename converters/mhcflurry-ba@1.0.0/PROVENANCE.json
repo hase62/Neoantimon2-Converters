@@ -1,0 +1,69 @@
+{
+  "method": "MHCflurry-BA",
+  "converter_id": "mhcflurry-ba@1.0.0",
+  "provider_version": "2.0.6",
+  "model_version": "",
+  "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+  "source_commit": "e9263e842da394abd9b41e2418c58ce8e6662fb8",
+  "category": "BA",
+  "MHC_class": "I",
+  "required_columns": [
+    "peptide",
+    "allele",
+    "mhcflurry_affinity"
+  ],
+  "metrics": [
+    [
+      "mhcflurry_affinity",
+      "affinity_nM",
+      "raw_score",
+      "raw",
+      "nM",
+      "lower_is_better"
+    ],
+    [
+      "mhcflurry_affinity_percentile",
+      "affinity_percentile",
+      "percentile_rank",
+      "mhc_binding_percentile",
+      "percent",
+      "lower_is_better"
+    ]
+  ],
+  "scope": "peptide_hla",
+  "sources": [
+    "https://github.com/openvax/mhcflurry/blob/e9263e842da394abd9b41e2418c58ce8e6662fb8/mhcflurry/predict_command.py",
+    "https://github.com/openvax/mhcflurry/blob/e9263e842da394abd9b41e2418c58ce8e6662fb8/mhcflurry/version.py"
+  ],
+  "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+  "fixtures_executed_predictor": false,
+  "license_notes": "Upstream source files declare Apache-2.0; no upstream code/models copied.",
+  "limitations": "2.0.6 --affinity-only, default column prefix and one allele per row only. Genotypes/best-allele mismatches rejected. Empty upstream NaN fields become not_evaluated with no asserted cause. Optional affinity percentile remains a separate BA channel; no presentation score interpretation.",
+  "citation": "O\u2019Donnell et al. MHCflurry 2.0. Cell Systems (2020).",
+  "feasibility": "IMPLEMENTED",
+  "missing": {
+    "": "not_evaluated"
+  },
+  "input_sha256": "5fbef8091d9861c6d1948eb076237eba1894a7abff680da2a7e74b1b0e1af629",
+  "expected_sha256": "1aec16ff99226f8b1825b4997edd2de8de36bebd09b00627c527ea63d7bbd360",
+  "provider_id": "mhcflurry-ba",
+  "declared_schema_version_not_observed_executable": true,
+  "metric_columns": [
+    {
+      "native_column": "mhcflurry_affinity",
+      "metric": "affinity_nM",
+      "metric_kind": "raw_score",
+      "metric_semantics": "raw",
+      "unit": "nM",
+      "direction": "lower_is_better"
+    },
+    {
+      "native_column": "mhcflurry_affinity_percentile",
+      "metric": "affinity_percentile",
+      "metric_kind": "percentile_rank",
+      "metric_semantics": "mhc_binding_percentile",
+      "unit": "percent",
+      "direction": "lower_is_better"
+    }
+  ]
+}

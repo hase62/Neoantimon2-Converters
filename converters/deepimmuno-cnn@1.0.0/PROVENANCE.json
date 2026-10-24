@@ -1,0 +1,52 @@
+{
+  "method": "DeepImmuno-CNN",
+  "converter_id": "deepimmuno-cnn@1.0.0",
+  "provider_version": "git-df42ac5b6bddfe531268335e2dcb496559cd488b",
+  "model_version": "",
+  "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+  "source_commit": "df42ac5b6bddfe531268335e2dcb496559cd488b",
+  "category": "IM",
+  "MHC_class": "I",
+  "required_columns": [
+    "peptide",
+    "HLA",
+    "immunogenicity"
+  ],
+  "metrics": [
+    [
+      "immunogenicity",
+      "immunogenicity_score",
+      "raw_score",
+      "raw",
+      "unitless",
+      "higher_is_better"
+    ]
+  ],
+  "scope": "peptide_hla",
+  "sources": [
+    "https://github.com/frankligy/DeepImmuno/blob/df42ac5b6bddfe531268335e2dcb496559cd488b/deepimmuno-cnn.py",
+    "https://github.com/frankligy/DeepImmuno/blob/df42ac5b6bddfe531268335e2dcb496559cd488b/README.md",
+    "https://github.com/frankligy/DeepImmuno/blob/df42ac5b6bddfe531268335e2dcb496559cd488b/LICENSE"
+  ],
+  "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+  "fixtures_executed_predictor": false,
+  "license_notes": "Upstream MIT; no upstream code/data copied.",
+  "limitations": "CNN multiple mode only, 9/10-mers, human A/B/C. Not GAN output. No HLA rescue, allele truncation or calibrated-probability claim; users must confirm exact supported upstream allele.",
+  "citation": "Li et al. DeepImmuno. Briefings in Bioinformatics (2021), doi:10.1093/bib/bbab160.",
+  "feasibility": "IMPLEMENTED",
+  "missing": {},
+  "input_sha256": "908885ccec8219797a12478a2d66c945f2c1848aee815d05760e836a84d1c5fe",
+  "expected_sha256": "b31d81c6fc46d6a235c21042234ecda42be006bbe1acdc4478558984d344df08",
+  "provider_id": "deepimmuno-cnn",
+  "declared_schema_version_not_observed_executable": true,
+  "metric_columns": [
+    {
+      "native_column": "immunogenicity",
+      "metric": "immunogenicity_score",
+      "metric_kind": "raw_score",
+      "metric_semantics": "raw",
+      "unit": "unitless",
+      "direction": "higher_is_better"
+    }
+  ]
+}

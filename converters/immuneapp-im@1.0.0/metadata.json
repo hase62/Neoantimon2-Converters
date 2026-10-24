@@ -1,0 +1,21 @@
+{
+  "id": "immuneapp-im@1.0.0",
+  "runtime": "Python",
+  "script": "converters/immuneapp-im@1.0.0/converter.py",
+  "sha256": "efbc27adf2f9ca88ce4a091255b05a8d16523702cb614bf80c54994a20bd7586",
+  "metadata": {
+    "output_schema": "external-prediction-1.0.0",
+    "description": "IM / ImmuneApp-IM; pinned schema; fixture-validated, predictor not executed",
+    "usage": "python3 converter.py --input INPUT --output standard.tsv --bundle EXPORT",
+    "arguments": [
+      "--input",
+      "--output",
+      "--bundle"
+    ],
+    "license": "PolyForm-Noncommercial-1.0.0"
+  },
+  "supported_predictor_versions": [
+    "git-320e021e2339ee75c7da0d010a736c4fabe906c8; schema commit 320e021e2339ee75c7da0d010a736c4fabe906c8"
+  ],
+  "source_revision": "https://github.com/bsml320/ImmuneApp/tree/320e021e2339ee75c7da0d010a736c4fabe906c8"
+}

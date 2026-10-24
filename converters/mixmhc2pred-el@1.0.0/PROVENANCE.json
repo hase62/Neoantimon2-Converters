@@ -1,0 +1,67 @@
+{
+  "method": "MixMHC2pred",
+  "converter_id": "mixmhc2pred-el@1.0.0",
+  "provider_version": "2.1-beta1",
+  "model_version": "",
+  "model_version_evidence": "Native output does not identify a weights release; left unknown, no weights inspected",
+  "source_commit": "eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7",
+  "category": "EL",
+  "MHC_class": "II",
+  "required_columns": {
+    "base": [
+      "Peptide",
+      "Context",
+      "BestAllele",
+      "%Rank_best",
+      "Core_best",
+      "CoreP1_best",
+      "SubSpec_best"
+    ],
+    "allele_prefixes": [
+      "%Rank_",
+      "CoreP1_",
+      "SubSpec_"
+    ]
+  },
+  "metrics": [
+    [
+      "%Rank_",
+      [
+        "presentation_percentile",
+        "percentile_rank",
+        "mhc_presentation_percentile",
+        "percent",
+        "lower_is_better"
+      ]
+    ]
+  ],
+  "scope": "peptide_hla",
+  "sources": [
+    "https://github.com/GfellerLab/MixMHC2pred/blob/eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7/test/out_noContext_compare.txt",
+    "https://github.com/GfellerLab/MixMHC2pred/blob/eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7/README.md",
+    "https://github.com/GfellerLab/MixMHC2pred/blob/eb01e315d382bb0ba14aa6fe142e76a6cb5a88a7/LICENSE"
+  ],
+  "fixture_provenance": "SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE",
+  "fixtures_executed_predictor": false,
+  "license_notes": "Upstream academic/noncommercial terms; independently authored fixtures only.",
+  "limitations": "2.1-beta1 standard no-context output only. Context-dependent/extra-output modes rejected. Explicit DP/DQ pairs preserved. DR beta shorthand requires one explicitly declared DRA*01:01~DRB presenter in the bundle; absent/ambiguous/different alpha rejected. NA becomes unsupported; invalid AA cannot be represented and fails.",
+  "citation": "Racle et al. Machine learning predictions of MHC-II specificities reveal alternative binding mode of class II epitopes. Immunity (2023).",
+  "feasibility": "IMPLEMENTED",
+  "missing": {
+    "NA": "unsupported"
+  },
+  "input_sha256": "45c1a3582d3b19e973e632d7d498dd211ec7017c1fbef935b949f4164ebc8733",
+  "expected_sha256": "5c2857ef3280935bb7e72dc203a83f62e6e6906c0736a2e45a4bd218b72023a3",
+  "provider_id": "mixmhc2pred-el",
+  "declared_schema_version_not_observed_executable": true,
+  "metric_columns": [
+    {
+      "native_prefix": "%Rank_",
+      "metric": "presentation_percentile",
+      "metric_kind": "percentile_rank",
+      "metric_semantics": "mhc_presentation_percentile",
+      "unit": "percent",
+      "direction": "lower_is_better"
+    }
+  ]
+}
