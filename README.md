@@ -13,6 +13,11 @@ converters plus a synthetic-example converter. See the
 New local additions or pull requests are published only after review and deployment.
 Converters adapt output files; they do not install or execute prediction engines.
 
+![Converter workflow: completed Neoantimon2 projects export traceable queries; external BA/EL/IM engines run separately; nine format adapters enable strict import and independent results without changing native evidence.](docs/assets/converter-workflow.svg)
+
+The Registry adapts output formats, preserves Origin links and keeps BA, EL and
+IM metrics distinct. [Figure guide, exports and editable source](WORKFLOW.md).
+
 HTTPS index: https://www.hase62.jp/Neoantimon2-Converters/index.json
 
 The canonical HTTPS domain is the existing account GitHub Pages domain.
@@ -54,7 +59,8 @@ GitHub Actions workflow, serving the output of
 `python3 prepare_pages.py . /new/directory/outside/registry`. This builds the
 index and stages only index.html, index.json, feedback.json, README.md,
 converters/, LICENSE, NOTICE, LICENSING.md, CATALOG.md, EXTERNAL-QUICKSTART.md,
-UPSTREAM-RESEARCH.json and .nojekyll. The read-only build
+UPSTREAM-RESEARCH.json, WORKFLOW.md, the five explicitly listed workflow assets
+and .nojekyll. The read-only build
 and privileged deployment are separate jobs. Nondefault branches cannot deploy.
 Local validation alone does not establish hosted GitHub behavior.
 

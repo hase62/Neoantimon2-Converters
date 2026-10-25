@@ -67,6 +67,22 @@ class PublicationTests(unittest.TestCase):
         self.assertIn('registry <- "https://www.hase62.jp/Neoantimon2-Converters/index.json"', guide)
         self.assertIn("alias was observed redirecting through HTTP", guide)
 
+    def test_workflow_assets_are_staged_as_reviewed_static_bytes(self):
+        from prepare_pages import WORKFLOW_ASSETS
+        out = prepare(self.root, self.parent / "site")
+        for name in WORKFLOW_ASSETS:
+            self.assertEqual((out / name).read_bytes(), (self.root / name).read_bytes())
+        self.assertFalse((out / "tools").exists())
+
+    def test_workflow_asset_parent_symlink_is_rejected(self):
+        original = self.parent / "original-assets"
+        (self.root / "docs/assets").rename(original)
+        (self.root / "docs/assets").symlink_to(original, target_is_directory=True)
+        out = self.parent / "site"
+        with self.assertRaisesRegex(ValueError, "unsafe workflow asset"):
+            prepare(self.root, out)
+        self.assertFalse(out.exists())
+
     def test_pages_contains_no_workflows_or_tests(self):
         out = prepare(self.root, self.parent / "site")
         self.assertFalse((out / ".github").exists())

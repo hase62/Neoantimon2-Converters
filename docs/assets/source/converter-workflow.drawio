@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="workflow" name="Neoantimon2-Converters — external prediction with traceable origins">
+    <mxGraphModel grid="1" gridSize="8" page="1" pageScale="1" pageWidth="1200" pageHeight="760" figureTitle="Neoantimon2-Converters — external prediction with traceable origins" figureDescription="A completed Neoantimon2 project exports unique peptides and peptide-HLA queries with all origin annotations. The user separately runs binding-affinity, presentation or immunogenicity models. Nine pinned format adapters across eight families convert native outputs to the standard TSV. Strict import into the original completed project preserves every origin and native results; external rankings and explanations are separate. Converter/import tests used schema-faithful synthetic fixtures, not upstream predictor execution.">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" vertex="1" value="Neoantimon2-Converters — predictions with traceable origins" style="shape=text;html=0;align=left;fontSize=29;fontStyle=1;fontColor=#233746;spacing=0;">
+          <mxGeometry x="24" y="12" width="1152" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" vertex="1" value="Nine published format adapters / eight method families • BA, EL and IM keep their scientific meaning" style="shape=text;html=0;align=left;fontSize=20;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="24" y="60" width="1152" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="context" parent="1" vertex="1" value="" style="shape=rectangle;rounded=1;fillColor=#f4f6f8;strokeColor=#52616d;strokeWidth=1.5;neoLayer=background;">
+          <mxGeometry x="24" y="103" width="1152" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="context-label" parent="1" vertex="1" value="Retain the completed Neoantimon2 project — native prediction scores and grades are not required" style="shape=text;html=0;align=left;fontSize=20;fontStyle=1;fontColor=#52616d;spacing=0;">
+          <mxGeometry x="38" y="112" width="1124" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="1-heading" parent="1" vertex="1" value="1  CORE" style="shape=text;html=0;align=left;fontSize=20;fontStyle=1;fontColor=#176487;spacing=0;">
+          <mxGeometry x="24" y="170" width="205" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="2-heading" parent="1" vertex="1" value="2  EXPORT" style="shape=text;html=0;align=left;fontSize=20;fontStyle=1;fontColor=#176487;spacing=0;">
+          <mxGeometry x="255" y="170" width="170" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="3-heading" parent="1" vertex="1" value="3  RUN MODEL" style="shape=text;html=0;align=left;fontSize=20;fontStyle=1;fontColor=#a34a09;spacing=0;">
+          <mxGeometry x="450" y="170" width="205" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4-heading" parent="1" vertex="1" value="4  CONVERT" style="shape=text;html=0;align=left;fontSize=20;fontStyle=1;fontColor=#a34a09;spacing=0;">
+          <mxGeometry x="680" y="170" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="5-heading" parent="1" vertex="1" value="5  INTERPRET" style="shape=text;html=0;align=left;fontSize=20;fontStyle=1;fontColor=#a34a09;spacing=0;">
+          <mxGeometry x="965" y="170" width="211" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="core" parent="1" vertex="1" value="" style="shape=rectangle;rounded=1;fillColor=#f3f8fb;strokeColor=#176487;strokeWidth=1.5;">
+          <mxGeometry x="24" y="210" width="205" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="core-title" parent="1" vertex="1" value="Reconstruct" style="shape=text;html=0;align=left;fontSize=22;fontStyle=1;fontColor=#176487;spacing=0;">
+          <mxGeometry x="38" y="222" width="177" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="core-body" parent="1" vertex="1" value="Variants + patient HLA&#10;Explicit sample identity&#10;&#10;Event → Origin&#10;→ Peptide →&#10;Candidate&#10;&#10;Many paths can share&#10;a peptide; all origin&#10;links are retained." style="shape=text;html=0;align=left;fontSize=17;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="38" y="258" width="177" height="253" as="geometry" />
+        </mxCell>
+        <mxCell id="export" parent="1" vertex="1" value="" style="shape=rectangle;rounded=1;fillColor=#f3f8fb;strokeColor=#176487;strokeWidth=1.5;">
+          <mxGeometry x="255" y="210" width="170" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="export-title" parent="1" vertex="1" value="Export Bundle" style="shape=text;html=0;align=left;fontSize=20;fontStyle=1;fontColor=#176487;spacing=0;">
+          <mxGeometry x="269" y="222" width="142" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="export-body" parent="1" vertex="1" value="neo_export_bundle()&#10;&#10;Unique peptides /&#10;peptide–HLA pairs&#10;&#10;Origin annotations&#10;+ event associations&#10;&#10;Keep project context." style="shape=text;html=0;align=left;fontSize=15;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="269" y="258" width="142" height="253" as="geometry" />
+        </mxCell>
+        <mxCell id="engines" parent="1" vertex="1" value="" style="shape=rectangle;rounded=1;fillColor=#fff8f1;strokeColor=#a34a09;strokeWidth=1.5;">
+          <mxGeometry x="450" y="210" width="205" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="engines-title" parent="1" vertex="1" value="Separate engines" style="shape=text;html=0;align=left;fontSize=21;fontStyle=1;fontColor=#a34a09;spacing=0;">
+          <mxGeometry x="464" y="222" width="177" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="engines-body" parent="1" vertex="1" value="BA · Binding affinity&#10;(e.g. MHCflurry)&#10;&#10;EL · Presentation /&#10;eluted ligand&#10;&#10;IM · Immunogenicity&#10;&#10;User runs separately." style="shape=text;html=0;align=left;fontSize=17;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="464" y="258" width="177" height="253" as="geometry" />
+        </mxCell>
+        <mxCell id="adapters" parent="1" vertex="1" value="" style="shape=rectangle;rounded=1;fillColor=#fff8f1;strokeColor=#a34a09;strokeWidth=1.5;">
+          <mxGeometry x="680" y="210" width="260" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="adapter-title" parent="1" vertex="1" value="Registry adapters" style="shape=text;html=0;align=left;fontSize=22;fontStyle=1;fontColor=#a34a09;spacing=0;">
+          <mxGeometry x="694" y="222" width="232" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="adapter-versions" parent="1" vertex="1" value="All IDs below @1.0.0" style="shape=text;html=0;align=left;fontSize=16;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="694" y="255" width="232" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="ba-ids" parent="1" vertex="1" value="BA: mhcflurry-ba" style="shape=text;html=0;align=left;fontSize=18;fontStyle=1;fontColor=#233746;spacing=0;">
+          <mxGeometry x="694" y="286" width="232" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="el-ids" parent="1" vertex="1" value="EL: bigmhc-el&#10;      mixmhcpred-el&#10;      mixmhc2pred-el&#10;      caphla-el" style="shape=text;html=0;align=left;fontSize=18;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="694" y="316" width="232" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="im-ids" parent="1" vertex="1" value="IM: bigmhc-im / prime-im&#10;      deepimmuno-cnn&#10;      immuneapp-im" style="shape=text;html=0;align=left;fontSize=18;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="694" y="410" width="232" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="format" parent="1" vertex="1" value="Native output → standard TSV" style="shape=text;html=0;align=left;fontSize=15;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="694" y="486" width="232" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="interpret" parent="1" vertex="1" value="" style="shape=rectangle;rounded=1;fillColor=#fff8f1;strokeColor=#a34a09;strokeWidth=1.5;">
+          <mxGeometry x="965" y="210" width="211" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="interpret-title" parent="1" vertex="1" value="Import + explain" style="shape=text;html=0;align=left;fontSize=22;fontStyle=1;fontColor=#a34a09;spacing=0;">
+          <mxGeometry x="979" y="222" width="183" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="interpret-body" parent="1" vertex="1" value="neo_analyze_external()&#10;Strict peptide or&#10;peptide + HLA match&#10;&#10;neo_external_results()&#10;neo_external_explain()&#10;&#10;Independent ranks&#10;+ origin provenance" style="shape=text;html=0;align=left;fontSize=16;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="979" y="258" width="183" height="253" as="geometry" />
+        </mxCell>
+        <mxCell id="core-to-export" parent="1" edge="1" source="core" target="export" style="strokeColor=#176487;strokeWidth=2.3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="export-to-engines" parent="1" edge="1" source="export" target="engines" style="strokeColor=#a34a09;strokeWidth=2.3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="engines-to-adapters" parent="1" edge="1" source="engines" target="adapters" style="strokeColor=#a34a09;strokeWidth=2.3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="adapters-to-interpret" parent="1" edge="1" source="adapters" target="interpret" style="strokeColor=#a34a09;strokeWidth=2.3;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="project-to-import" parent="1" edge="1" source="context" target="interpret" style="strokeColor=#52616d;strokeWidth=2.3;exitX=0.91;exitY=1;entryX=0.5;entryY=0;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1072" y="158" />
+              <mxPoint x="1190" y="158" />
+              <mxPoint x="1190" y="202" />
+              <mxPoint x="1070.5" y="202" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bounds" parent="1" vertex="1" value="" style="shape=rectangle;rounded=1;fillColor=#f4f6f8;strokeColor=#52616d;strokeWidth=1.5;neoLayer=background;">
+          <mxGeometry x="24" y="549" width="1152" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="bounds-title" parent="1" vertex="1" value="SCIENTIFIC AND EXECUTION BOUNDARIES" style="shape=text;html=0;align=left;fontSize=20;fontStyle=1;fontColor=#52616d;spacing=0;">
+          <mxGeometry x="40" y="560" width="1120" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="bounds-body" parent="1" vertex="1" value="Adapters do not run engines or bundle binaries / weights. Review scripts and authorize execution.&#10;BA, EL and IM scales differ. Raw IM scores are not EL percentiles and do not imply somatic A–E grades.&#10;Native evidence, grades and ranks remain unchanged. Every matched candidate keeps all original Origin links." style="shape=text;html=0;align=left;fontSize=17;fontStyle=0;fontColor=#233746;spacing=0;">
+          <mxGeometry x="40" y="590" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="validation" parent="1" vertex="1" value="Validation: converter + import tests used SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE outputs." style="shape=text;html=0;align=left;fontSize=18;fontStyle=1;fontColor=#52616d;spacing=0;">
+          <mxGeometry x="24" y="677" width="1152" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="limits" parent="1" vertex="1" value="Upstream predictor execution / model accuracy / clinical performance were not validated." style="shape=text;html=0;align=left;fontSize=18;fontStyle=0;fontColor=#52616d;spacing=0;">
+          <mxGeometry x="24" y="707" width="1152" height="25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

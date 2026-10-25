@@ -20,6 +20,8 @@ All input fixtures are **SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE** files. No predictor
 | [immuneapp-im@1.0.0](converters/immuneapp-im@1.0.0/README.md) | git-320e021e2339ee75c7da0d010a736c4fabe906c8 | IM | I | immunogenicity_score (unitless, higher_is_better) |
 | [mhcflurry-ba@1.0.0](converters/mhcflurry-ba@1.0.0/README.md) | 2.0.6 | BA | I | affinity_nM (nM, lower_is_better); affinity_percentile (percent, lower_is_better) |
 
+[Illustrated converter workflow and scientific boundaries](WORKFLOW.md).
+
 ## Native schemas and provenance
 
 Each version README gives the executable command, input mode, interpretation, citation, licensing and limits. PROVENANCE.json gives mandatory/optional columns, immutable upstream URLs/commit, fixture hashes and exact metric mappings. Wide formats retain **all per-allele** selected measurements; best-allele summaries never fan out. Source row provenance includes the original input-byte SHA256, physical line, metric column and, for ImmuneApp, source group label. Run IDs are deterministic input hashes, not invented predictor run identifiers.
