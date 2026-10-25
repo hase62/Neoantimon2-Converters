@@ -2,7 +2,9 @@
 
 [Offline BA/EL/IM walkthrough](EXTERNAL-QUICKSTART.md) · [Registry](README.md) · [Machine-readable research](UPSTREAM-RESEARCH.json)
 
-This source adds **9 new registrations / 8 method families**, alongside the unchanged synthetic example. The hosted Registry is not updated by local development. BigMHC-EL and BigMHC-IM are distinct scientific models with separate provider IDs. There are no aliases counted as new converters.
+The nine BA/EL/IM converters listed in this catalog are publicly available through the [hosted Neoantimon2 Converter Registry](https://www.hase62.jp/Neoantimon2-Converters/) as of October 25, 2026. The Registry contains these **9 registrations / 8 method families** plus a synthetic-example converter. New local additions or pull requests are published only after review and deployment.
+
+BigMHC-EL and BigMHC-IM are distinct scientific models with separate provider IDs. There are no aliases counted as new converters. Feedback for synthetic-example is maintainer testing, as explained in the [Registry feedback guide](README.md#community-okng-comments-and-broken-converters).
 
 All input fixtures are **SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE** files. No predictor, model weights, large dataset, GPU, Docker or new environment was installed or executed. Converters require Python >= 3.9 and its standard library. The existing Registry execution and 18-column external-prediction-1.0.0 contract are unchanged.
 
