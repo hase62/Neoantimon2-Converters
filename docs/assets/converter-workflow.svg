@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="figure-title figure-description">
+  <title id="figure-title">Neoantimon2-Converters — external prediction with traceable origins</title>
+  <desc id="figure-description">A completed Neoantimon2 project exports unique peptides and peptide-HLA queries with all origin annotations. The user separately runs binding-affinity, presentation or immunogenicity models. Nine pinned format adapters across eight families convert native outputs to the standard TSV. Strict import into the original completed project preserves every origin and native results; external rankings and explanations are separate. Converter/import tests used schema-faithful synthetic fixtures, not upstream predictor execution.</desc>
+  <defs>
+    <marker id="arrow-native" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4.5 L 0 9 Z" fill="#176487" />
+    </marker>
+    <marker id="arrow-external" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4.5 L 0 9 Z" fill="#a34a09" />
+    </marker>
+    <marker id="arrow-optional" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4.5 L 0 9 Z" fill="#52616d" />
+    </marker>
+  </defs>
+  <rect width="1200" height="760" fill="#ffffff" />
+  <g id="context">
+    <rect x="24" y="103" width="1152" height="42" fill="#f4f6f8" stroke="#52616d" stroke-width="1.5" rx="10" ry="10" />
+  </g>
+  <g id="bounds">
+    <rect x="24" y="549" width="1152" height="112" fill="#f4f6f8" stroke="#52616d" stroke-width="1.5" rx="10" ry="10" />
+  </g>
+  <g id="core-to-export">
+    <polyline points="229,365 255,365" fill="none" stroke="#176487" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-native)" />
+  </g>
+  <g id="export-to-engines">
+    <polyline points="425,365 450,365" fill="none" stroke="#a34a09" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-external)" />
+  </g>
+  <g id="engines-to-adapters">
+    <polyline points="655,365 680,365" fill="none" stroke="#a34a09" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-external)" />
+  </g>
+  <g id="adapters-to-interpret">
+    <polyline points="940,365 965,365" fill="none" stroke="#a34a09" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-external)" />
+  </g>
+  <g id="project-to-import">
+    <polyline points="1072.32,145 1072,158 1190,158 1190,202 1070.5,202 1070.5,210" fill="none" stroke="#52616d" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-optional)" stroke-dasharray="7 5" />
+  </g>
+  <g id="title">
+    <text x="24" y="39.26" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="29" text-anchor="start" data-box="24 12 1152 42" font-weight="700">
+      <tspan x="24" y="39.26">Neoantimon2-Converters — predictions with traceable origins</tspan>
+    </text>
+  </g>
+  <g id="subtitle">
+    <text x="24" y="78.8" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" data-box="24 60 1152 27">
+      <tspan x="24" y="78.8">Nine published format adapters / eight method families • BA, EL and IM keep their scientific meaning</tspan>
+    </text>
+  </g>
+  <g id="context-label">
+    <text x="38" y="130.8" fill="#52616d" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" data-box="38 112 1124 26" font-weight="700">
+      <tspan x="38" y="130.8">Retain the completed Neoantimon2 project — native prediction scores and grades are not required</tspan>
+    </text>
+  </g>
+  <g id="1-heading">
+    <text x="24" y="188.8" fill="#176487" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" data-box="24 170 205 26" font-weight="700">
+      <tspan x="24" y="188.8">1  CORE</tspan>
+    </text>
+  </g>
+  <g id="2-heading">
+    <text x="255" y="188.8" fill="#176487" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" data-box="255 170 170 26" font-weight="700">
+      <tspan x="255" y="188.8">2  EXPORT</tspan>
+    </text>
+  </g>
+  <g id="3-heading">
+    <text x="450" y="188.8" fill="#a34a09" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" data-box="450 170 205 26" font-weight="700">
+      <tspan x="450" y="188.8">3  RUN MODEL</tspan>
+    </text>
+  </g>
+  <g id="4-heading">
+    <text x="680" y="188.8" fill="#a34a09" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" data-box="680 170 260 26" font-weight="700">
+      <tspan x="680" y="188.8">4  CONVERT</tspan>
+    </text>
+  </g>
+  <g id="5-heading">
+    <text x="965" y="188.8" fill="#a34a09" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" data-box="965 170 211 26" font-weight="700">
+      <tspan x="965" y="188.8">5  INTERPRET</tspan>
+    </text>
+  </g>
+  <g id="core">
+    <rect x="24" y="210" width="205" height="310" fill="#f3f8fb" stroke="#176487" stroke-width="1.5" rx="10" ry="10" />
+  </g>
+  <g id="core-title">
+    <text x="38" y="242.68" fill="#176487" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" data-box="38 222 177 56" font-weight="700">
+      <tspan x="38" y="242.68">Reconstruct</tspan>
+    </text>
+  </g>
+  <g id="core-body">
+    <text x="38" y="273.98" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="start" data-box="38 258 177 253">
+      <tspan x="38" y="273.98">Variants + patient HLA</tspan>
+      <tspan x="38" y="294.38">Explicit sample identity</tspan>
+      <tspan x="38" y="314.78" />
+      <tspan x="38" y="335.18">Event → Origin</tspan>
+      <tspan x="38" y="355.58">→ Peptide →</tspan>
+      <tspan x="38" y="375.98">Candidate</tspan>
+      <tspan x="38" y="396.38" />
+      <tspan x="38" y="416.78">Many paths can share</tspan>
+      <tspan x="38" y="437.18">a peptide; all origin</tspan>
+      <tspan x="38" y="457.58">links are retained.</tspan>
+    </text>
+  </g>
+  <g id="export">
+    <rect x="255" y="210" width="170" height="310" fill="#f3f8fb" stroke="#176487" stroke-width="1.5" rx="10" ry="10" />
+  </g>
+  <g id="export-title">
+    <text x="269" y="240.8" fill="#176487" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" data-box="269 222 142 56" font-weight="700">
+      <tspan x="269" y="240.8">Export Bundle</tspan>
+    </text>
+  </g>
+  <g id="export-body">
+    <text x="269" y="272.1" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" data-box="269 258 142 253">
+      <tspan x="269" y="272.1">neo_export_bundle()</tspan>
+      <tspan x="269" y="290.1" />
+      <tspan x="269" y="308.1">Unique peptides /</tspan>
+      <tspan x="269" y="326.1">peptide–HLA pairs</tspan>
+      <tspan x="269" y="344.1" />
+      <tspan x="269" y="362.1">Origin annotations</tspan>
+      <tspan x="269" y="380.1">+ event associations</tspan>
+      <tspan x="269" y="398.1" />
+      <tspan x="269" y="416.1">Keep project context.</tspan>
+    </text>
+  </g>
+  <g id="engines">
+    <rect x="450" y="210" width="205" height="310" fill="#fff8f1" stroke="#a34a09" stroke-width="1.5" rx="10" ry="10" />
+  </g>
+  <g id="engines-title">
+    <text x="464" y="241.74" fill="#a34a09" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="start" data-box="464 222 177 56" font-weight="700">
+      <tspan x="464" y="241.74">Separate engines</tspan>
+    </text>
+  </g>
+  <g id="engines-body">
+    <text x="464" y="273.98" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="start" data-box="464 258 177 253">
+      <tspan x="464" y="273.98">BA · Binding affinity</tspan>
+      <tspan x="464" y="294.38">(e.g. MHCflurry)</tspan>
+      <tspan x="464" y="314.78" />
+      <tspan x="464" y="335.18">EL · Presentation /</tspan>
+      <tspan x="464" y="355.58">eluted ligand</tspan>
+      <tspan x="464" y="375.98" />
+      <tspan x="464" y="396.38">IM · Immunogenicity</tspan>
+      <tspan x="464" y="416.78" />
+      <tspan x="464" y="437.18">User runs separately.</tspan>
+    </text>
+  </g>
+  <g id="adapters">
+    <rect x="680" y="210" width="260" height="310" fill="#fff8f1" stroke="#a34a09" stroke-width="1.5" rx="10" ry="10" />
+  </g>
+  <g id="adapter-title">
+    <text x="694" y="242.68" fill="#a34a09" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" data-box="694 222 232 28" font-weight="700">
+      <tspan x="694" y="242.68">Registry adapters</tspan>
+    </text>
+  </g>
+  <g id="adapter-versions">
+    <text x="694" y="270.04" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="start" data-box="694 255 232 23">
+      <tspan x="694" y="270.04">All IDs below @1.0.0</tspan>
+    </text>
+  </g>
+  <g id="ba-ids">
+    <text x="694" y="302.92" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" data-box="694 286 232 23" font-weight="700">
+      <tspan x="694" y="302.92">BA: mhcflurry-ba</tspan>
+    </text>
+  </g>
+  <g id="el-ids">
+    <text x="694" y="332.92" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" data-box="694 316 232 88">
+      <tspan x="694" y="332.92">EL: bigmhc-el</tspan>
+      <tspan x="694" y="354.52">      mixmhcpred-el</tspan>
+      <tspan x="694" y="376.12">      mixmhc2pred-el</tspan>
+      <tspan x="694" y="397.72">      caphla-el</tspan>
+    </text>
+  </g>
+  <g id="im-ids">
+    <text x="694" y="426.92" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" data-box="694 410 232 70">
+      <tspan x="694" y="426.92">IM: bigmhc-im / prime-im</tspan>
+      <tspan x="694" y="448.52">      deepimmuno-cnn</tspan>
+      <tspan x="694" y="470.12">      immuneapp-im</tspan>
+    </text>
+  </g>
+  <g id="format">
+    <text x="694" y="500.1" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="start" data-box="694 486 232 23">
+      <tspan x="694" y="500.1">Native output → standard TSV</tspan>
+    </text>
+  </g>
+  <g id="interpret">
+    <rect x="965" y="210" width="211" height="310" fill="#fff8f1" stroke="#a34a09" stroke-width="1.5" rx="10" ry="10" />
+  </g>
+  <g id="interpret-title">
+    <text x="979" y="242.68" fill="#a34a09" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" data-box="979 222 183 56" font-weight="700">
+      <tspan x="979" y="242.68">Import + explain</tspan>
+    </text>
+  </g>
+  <g id="interpret-body">
+    <text x="979" y="273.04" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="16" text-anchor="start" data-box="979 258 183 253">
+      <tspan x="979" y="273.04">neo_analyze_external()</tspan>
+      <tspan x="979" y="292.24">Strict peptide or</tspan>
+      <tspan x="979" y="311.44">peptide + HLA match</tspan>
+      <tspan x="979" y="330.64" />
+      <tspan x="979" y="349.84">neo_external_results()</tspan>
+      <tspan x="979" y="369.04">neo_external_explain()</tspan>
+      <tspan x="979" y="388.24" />
+      <tspan x="979" y="407.44">Independent ranks</tspan>
+      <tspan x="979" y="426.64">+ origin provenance</tspan>
+    </text>
+  </g>
+  <g id="bounds-title">
+    <text x="40" y="578.8" fill="#52616d" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" data-box="40 560 1120 27" font-weight="700">
+      <tspan x="40" y="578.8">SCIENTIFIC AND EXECUTION BOUNDARIES</tspan>
+    </text>
+  </g>
+  <g id="bounds-body">
+    <text x="40" y="605.98" fill="#233746" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="start" data-box="40 590 1120 64">
+      <tspan x="40" y="605.98">Adapters do not run engines or bundle binaries / weights. Review scripts and authorize execution.</tspan>
+      <tspan x="40" y="626.38">BA, EL and IM scales differ. Raw IM scores are not EL percentiles and do not imply somatic A–E grades.</tspan>
+      <tspan x="40" y="646.78">Native evidence, grades and ranks remain unchanged. Every matched candidate keeps all original Origin links.</tspan>
+    </text>
+  </g>
+  <g id="validation">
+    <text x="24" y="693.92" fill="#52616d" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" data-box="24 677 1152 25" font-weight="700">
+      <tspan x="24" y="693.92">Validation: converter + import tests used SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE outputs.</tspan>
+    </text>
+  </g>
+  <g id="limits">
+    <text x="24" y="723.92" fill="#52616d" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" data-box="24 707 1152 25">
+      <tspan x="24" y="723.92">Upstream predictor execution / model accuracy / clinical performance were not validated.</tspan>
+    </text>
+  </g>
+</svg>

@@ -4,12 +4,19 @@ Public registry: https://github.com/hase62/Neoantimon2-Converters
 
 Discovery: https://www.hase62.jp/Neoantimon2-Converters/
 
-This source includes nine pinned BA/EL/IM adapters (eight method families), plus
-the original synthetic example. See the [catalog](CATALOG.md),
+The nine BA/EL/IM converters (eight method families) listed in the
+[catalog](CATALOG.md) are publicly available through the hosted Neoantimon2
+Converter Registry as of October 25, 2026. The Registry contains these nine
+converters plus a synthetic-example converter. See the
 [offline external prediction walkthrough](EXTERNAL-QUICKSTART.md) and
 [machine-readable upstream research](UPSTREAM-RESEARCH.json).
-Local additions are not hosted until reviewed, merged and explicitly deployed.
+New local additions or pull requests are published only after review and deployment.
 Converters adapt output files; they do not install or execute prediction engines.
+
+![Converter workflow: completed Neoantimon2 projects export traceable queries; external BA/EL/IM engines run separately; nine format adapters enable strict import and independent results without changing native evidence.](docs/assets/converter-workflow.svg)
+
+The Registry adapts output formats, preserves Origin links and keeps BA, EL and
+IM metrics distinct. [Figure guide, exports and editable source](WORKFLOW.md).
 
 HTTPS index: https://www.hase62.jp/Neoantimon2-Converters/index.json
 
@@ -51,7 +58,9 @@ GitHub Pages serves the reviewed default branch via a manually dispatched
 GitHub Actions workflow, serving the output of
 `python3 prepare_pages.py . /new/directory/outside/registry`. This builds the
 index and stages only index.html, index.json, feedback.json, README.md,
-converters/, LICENSE, NOTICE, LICENSING.md and .nojekyll. The read-only build
+converters/, LICENSE, NOTICE, LICENSING.md, CATALOG.md, EXTERNAL-QUICKSTART.md,
+UPSTREAM-RESEARCH.json, WORKFLOW.md, the five explicitly listed workflow assets
+and .nojekyll. The read-only build
 and privileged deployment are separate jobs. Nondefault branches cannot deploy.
 Local validation alone does not establish hosted GitHub behavior.
 
@@ -107,6 +116,13 @@ explicitly requests execution; registry lookup additionally requires first-use
 `trust = TRUE`. Preserve inputs and reviewed scripts outside disposable runs.
 
 ## Community OK/NG, comments and broken converters
+
+[Issue #3](https://github.com/hase62/Neoantimon2-Converters/issues/3) is retained
+as a maintainer synthetic test of the feedback lifecycle for
+`synthetic-example@1.0.0`. Its `feedback.json` snapshot of one OK and one NG
+records test reactions from the same maintainer, not independent user
+evaluations or feedback on the nine BA/EL/IM converters. The issue and snapshot
+are historical test evidence; votes never authorize converter execution.
 
 Any GitHub user can react +1 for OK or -1 for NG on the linked version Issue
 and add comments. Include converter ID/SHA256, predictor/model version,
