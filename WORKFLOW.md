@@ -72,8 +72,8 @@ python3 tools/build_workflow_figure.py \
   --work-dir /path/to/new/local-preview
 ```
 
-The main SVG is 1200 × 760; PNG is 3600 × 2280. Full-size and 1200/900/600 px
-previews must be inspected after changes. At 600 px, open the full-size figure
-for small adapter names; text descriptions remain accessible independently.
+The main SVG is 1200 × 440; PNG is 3600 × 1320. Inspect full-size and
+900/600 px previews after changes. Converter names, exact versions and mode
+restrictions are listed in [CATALOG.md](CATALOG.md), not inside this main figure.
 The Pages builder stages only the explicitly reviewed figure files/guide;
 it never runs this renderer, a converter or an upstream prediction engine.
