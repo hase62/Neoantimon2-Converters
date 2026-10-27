@@ -1,265 +1,184 @@
-# Neoantimon2 Community Converter Registry
+# Neoantimon2-Converters
 
-Public registry: https://github.com/hase62/Neoantimon2-Converters
+**Use an external prediction method without losing your candidate's origins.**
+A converter is a small format adapter: it turns one supported prediction program's
+output into the TSV that Neoantimon2 can import. You need one when you have an
+external tool's native output rather than an already standardized table.
 
-Discovery: https://www.hase62.jp/Neoantimon2-Converters/
+Neoantimon2 reconstructs candidates and interprets evidence. This independent
+Registry supplies adapters; **it does not run prediction engines or bundle their
+software, models or weights**.
 
-The nine BA/EL/IM converters (eight method families) listed in the
-[catalog](CATALOG.md) are publicly available through the hosted Neoantimon2
-Converter Registry as of October 25, 2026. The Registry contains these nine
-converters plus a synthetic-example converter. See the
-[offline external prediction walkthrough](EXTERNAL-QUICKSTART.md) and
-[machine-readable upstream research](UPSTREAM-RESEARCH.json).
-New local additions or pull requests are published only after review and deployment.
-Converters adapt output files; they do not install or execute prediction engines.
+![Four steps: export queries from Neoantimon2, run a BA/EL/IM engine separately, convert its output format, and import into the retained project. Origins stay traceable and native results stay unchanged.](docs/assets/converter-workflow.svg)
 
-![Converter workflow: completed Neoantimon2 projects export traceable queries; external BA/EL/IM engines run separately; nine format adapters enable strict import and independent results without changing native evidence.](docs/assets/converter-workflow.svg)
+[Start with your files](#start-with-your-files) · [Convert and import](#convert-and-import) ·
+[Offline example](#try-it-offline) · [Choose a converter](#published-converters)
 
-The Registry adapts output formats, preserves Origin links and keeps BA, EL and
-IM metrics distinct. [Figure guide, exports and editable source](WORKFLOW.md).
+## Start with your files
 
-HTTPS index: https://www.hase62.jp/Neoantimon2-Converters/index.json
+You need an installed Neoantimon2 **v0.3.0**, a **completed project** `p`, its
+Export Bundle and the external predictor's output. Native scores/grades need
+not be available. Keep the original project for import; the bundle alone cannot
+replace it. No new HLA typing or peptide reconstruction happens here.
 
-The canonical HTTPS domain is the existing account GitHub Pages domain.
-No new domain or non-GitHub backend is used. Use the canonical URLs above:
-the github.io alias was observed redirecting through HTTP before HTTPS,
-even after this project enabled HTTPS enforcement. That alias is not the
-recommended registry URL. Do not assume redirect hops are secure merely
-because an initial URL starts with HTTPS.
+```r
+library(Neoantimon2)
+bundle <- neo_export_bundle(p)
+bundle$path
+```
 
-Initial maintainer: @hase62. Public contributions use Pull Requests with
-maintainer review. See [LICENSING.md](LICENSING.md), [LICENSE](LICENSE) and
-[NOTICE](NOTICE) for the preserved infrastructure and converter boundaries.
+The bundle contains unique `peptides.tsv` / `pmhc_queries.tsv`, candidate and
+Origin annotations and `candidate_origin_links.tsv`. Supply queries in the
+format required by your selected predictor, run it **separately**, and keep its
+version/model/invocation and original output. Patient data stays local.
 
-Anyone with a GitHub account can propose an immutable `name@1.0.0` directory
-containing a script, metadata.json and small nonprivate synthetic input/output
-examples through a pull request. Read the script before use. Maintainers check
-schema hygiene, paths and obvious repository safety, not scientific validity.
-Accepted versions are immutable: changing code or metadata requires a new ID.
-Issue links and vote snapshots are maintained separately in feedback.json;
-they never authorize execution or change an accepted converter version.
-Never include patient data, credentials, licensed predictors or model files.
+| Choose the scientific target | What the score means |
+| --- | --- |
+| **BA — binding affinity** | e.g. IC50 in nM, lower is better; affinity percentiles are separate measurements |
+| **EL — eluted ligand / presentation** | Model score or percentile for presentation-related behavior |
+| **IM — immunogenicity** | Immunogenicity-related score or percentile, not a clinical immune-response measurement |
 
-The contract is `Rscript converter.R --input X --output standard.tsv --bundle export`
-or the same arguments to python3. Output must be external-prediction-1.0.0.
-Scripts do not install/execute predictors, upload annotations, reconstruct
-origins or perform grading. Return nonzero for any failure. Users install any
-converter dependencies explicitly. This subprocess is arbitrary user code,
-not a security sandbox; a timeout is a resource bound, not a security boundary.
+These scales are not interchangeable. Raw IM scores are not EL percentiles;
+model scores are not automatically calibrated probabilities.
 
-Run `python3 build_index.py .` to validate metadata, checksum scripts and build
-index.json without executing any contributor code. The validator uses only
-Python's standard library. The read-only PR workflow runs the trusted validator
-from the base branch against submitted files as data, with no secrets or write
-permissions. The workflow also rejects edits to accepted version directories.
-It never uses pull_request_target or runs a contributed R/Python script.
+## Convert and import
 
-GitHub Pages serves the reviewed default branch via a manually dispatched
-GitHub Actions workflow, serving the output of
-`python3 prepare_pages.py . /new/directory/outside/registry`. This builds the
-index and stages only index.html, index.json, feedback.json, README.md,
-converters/, LICENSE, NOTICE, LICENSING.md, CATALOG.md, EXTERNAL-QUICKSTART.md,
-UPSTREAM-RESEARCH.json, WORKFLOW.md, the five explicitly listed workflow assets
-and .nojekyll. The read-only build
-and privileged deployment are separate jobs. Nondefault branches cannot deploy.
-Local validation alone does not establish hosted GitHub behavior.
+Choose the **exact converter ID/version and supported predictor mode** from the
+catalog below. Review its README, PROVENANCE, license and script. Python ≥ 3.9
+and its standard library suffice for the nine published adapters. No predictor
+installation is needed to convert an existing output file.
 
-## Submit a converter (any GitHub account)
+For example, after obtaining `bigmhc-el@1.0.0/converter.py`, compare its SHA256
+with the entry in the hosted `index.json` or your reviewed local index:
 
-1. Fork https://github.com/hase62/Neoantimon2-Converters and make a branch. Add
-   `converters/your-name@1.0.0/`; use lowercase names and major.minor.patch.
-   A fix to an accepted version goes in a **new** version directory.
-2. Add one standalone converter.R or converter.py, input-X.tsv and expected.tsv.
-   Fixtures must be small, synthetic and nonprivate. expected.tsv uses exactly
-   the external-prediction-1.0.0 columns. README.md is recommended for input
-   format, dependencies, installation, tested predictor versions and limitations;
-   description/usage/license metadata are required even without a README.
-3. Create metadata.json following metadata.schema.json. Set the exact directory
-   ID, R/Python runtime and root-relative script path. Set the script SHA256
-   with `shasum -a 256 converters/your-name@1.0.0/converter.py` (or converter.R).
-   Declare your own script license and supported predictor versions; do not
-   inherit the synthetic example's license without permission. Include full
-   license terms and applicable notices in LICENSE.txt; see LICENSING.md. Use a stable
-   upstream revision or an earlier commit containing the script as
-   source_revision. Omit legacy issue_url/ok/ng fields; feedback is separate.
-4. Run `python3 build_index.py .`. It validates submitted files as data and
-   refreshes index.json. Open a Pull Request using the template. Describe how
-   a user installs dependencies and runs the converter locally; any optional
-   execution is your responsibility and is never a privileged CI step.
-5. Maintainers check metadata, documentation, schema hygiene, checksums, paths
-   and obvious security problems. This is **not scientific peer review**,
-   official algorithm approval, or assurance that the converter is correct.
-   CI does not execute your script or prove its output equals expected.tsv.
+```sh
+shasum -a 256 converters/bigmhc-el@1.0.0/converter.py
+python3 converters/bigmhc-el@1.0.0/converter.py \
+  --input /your/predictions/bigmhc.csv \
+  --output /your/predictions/standard.tsv \
+  --bundle /your/completed-project/results/export_bundle
+```
 
-Version files are limited to 2 MiB each, 100 files/20 MiB per version, and
-R/Python, JSON, TSV/CSV, Markdown/plain-text files (plus README/LICENSE).
-Symlinks, special files, executable web content and binaries are refused.
-feedback.json is limited to 2 MiB. The copied prediction contract is byte-identical
-to Neoantimon2's frozen contract. CI checks expected.tsv structure, declared
-enums/statuses, finite scores, percent units/ranges and duplicates without
-executing the converter. Neoantimon2's R importer remains authoritative for
-full HLA presenter resolution, task compatibility and biological matching.
-No licensed model, predictor or private sample belongs in a PR.
+Replace the paths; output must be a **new** file. Checksum agreement identifies
+bytes, not code safety. Executing a converter uses your local privileges: inspect
+it and authorize the operation. It is not a sandbox. Original files are not modified.
 
-## Find and use one exact version
+A concrete **SCHEMA_FAITHFUL_SYNTHETIC_FIXTURE**, not a model run:
 
-Search the discovery page by ID, description or declared predictor version.
-Each entry links its exact metadata and script and displays SHA256. Review
-the script, dependencies and compatibility reports before downloading/executing.
-Choose an explicit ID such as name@1.0.0, never an automatic "latest" version.
-For a downloaded script, compare `shasum -a 256 /path/converter.py` with the
-published digest. Checksum agreement identifies bytes, not code safety.
-The R examples below support a configured local index or the public
-HTTPS index URL above. An original
-completed neo_project is required. Local `converter = "/path/converter.py"`
-explicitly requests execution; registry lookup additionally requires first-use
-`trust = TRUE`. Preserve inputs and reviewed scripts outside disposable runs.
+```csv
+mhc,pep,len,BigMHC_EL
+HLA-A*02:01,SIINFEKLA,9,0
+HLA-B*07:02,SIINFEKLA,9,0.875
+```
+
+Selected columns of the converted output are shown below. The converter writes
+**all 18** standard columns, including schema/model/run identity and source-row
+provenance; this display is not an alternative input schema.
+
+| peptide_sequence | mhc_key | provider / metric | score | unit / score_direction |
+| --- | --- | --- | ---: | --- |
+| SIINFEKLA | HLA-A*02:01 | bigmhc-el / score | 0 | unitless / higher_is_better |
+| SIINFEKLA | HLA-B*07:02 | bigmhc-el / score | 0.875 | unitless / higher_is_better |
+
+Zero is evaluated data, not a missing prediction. For a converted BigMHC-EL table
+matched to your original project, import a deliberately chosen channel:
+
+```r
+standard_tsv <- path.expand("~/predictions/standard.tsv")
+scores <- read.delim(standard_tsv, colClasses = "character", check.names = FALSE)
+channel <- scores[scores$provider == "bigmhc-el" & scores$metric == "score", ]
+stopifnot(nrow(channel) > 0L)
+fields <- c("provider", "run_id", "task", "metric", "score_direction")
+stopifnot(nrow(unique(channel[, fields])) == 1L)
+policy <- c(list(mode = "external_rank"), as.list(channel[1L, fields]))
+a <- neo_analyze_external(p, standard_tsv, policy = policy)
+r <- neo_external_results(a)
+id <- r$candidate_id[r$external_status == "evaluated"][[1L]]
+neo_external_explain(a, candidate_id = id)
+```
+
+Matching is strict peptide or peptide+full HLA identity. These nine adapters emit
+peptide+HLA evidence; Class II pairs remain exact. All matched original Origins
+are retained. Results/explanations and external ranking remain **separate**;
+native evidence, grades and ranks stay unchanged. Raw scores, especially IM,
+do not automatically produce somatic A–E grades. Other methods require their
+own explicit provider/metric/direction, not the BigMHC policy by analogy.
+
+Neoantimon2 can also select a version through a local/HTTPS Registry index.
+First use requires `trust = TRUE` after review; later approved cached bytes are
+verified offline. Without consent it stops with `TRUST_REQUIRED`. Direct standard
+TSV import above executes no converter. The canonical index is
+[hosted here](https://www.hase62.jp/Neoantimon2-Converters/index.json).
+
+## Try it offline
+
+From this Registry checkout, with Neoantimon2 v0.3.0 and its dependencies already
+installed, review the local scripts and run this complete synthetic demonstration.
+It executes format adapters, **not prediction engines**, and needs no network:
+
+```r
+library(Neoantimon2)
+registry_root <- normalizePath(".")
+example_dir <- tempfile("neo-converter-demo-")
+status <- system2(file.path(R.home("bin"), "Rscript"), c(
+  shQuote(file.path(registry_root, "tests/integration/released_v030.R")),
+  shQuote(registry_root), shQuote(example_dir)))
+stopifnot(status == 0L)
+meta <- jsonlite::read_json(file.path(example_dir, "integration-results.json"))
+p <- neo_project(path = meta$project)
+cat("Synthetic output files:", example_dir, "\n")
+```
+
+The script builds **3 events, 3 origins and 10 candidates** for two 9-mer peptides
+and five presenters. It converts/imports all nine adapters, checks every Origin,
+native artifact hashes and independent EL/IM rankings. Its synthetic predictions
+are not biological validation. In the import block above, set `standard_tsv` to
+`file.path(example_dir, "bigmhc-el@1.0.0", "standard.tsv")` to inspect that EL run.
+Use a durable new output path rather than R temporary storage if retaining results.
+
+## Published converters
+
+Nine adapters across **eight method families** are public, plus
+`synthetic-example@1.0.0`. New submissions are published only after review and
+deployment. Choose a target, then check the method’s pinned schema:
+
+| Target | Published adapters (all @1.0.0) |
+| --- | --- |
+| BA | MHCflurry BA |
+| EL | BigMHC EL, MixMHCpred, MixMHC2pred, CapHLA EL |
+| IM | BigMHC IM, PRIME, DeepImmuno CNN, ImmuneApp IM |
+
+The [catalog](CATALOG.md) gives exact IDs, supported versions, units/directions,
+commands, restrictions and citations. Do not infer compatibility with other
+versions/modes. MixMHC2pred is pinned to no-context output; BigMHC fuzzy allele
+rescue is not reproduced. The [BA/EL/IM worked examples](EXTERNAL-QUICKSTART.md)
+continue the same offline project with one selected run per category.
+
+## Limitations and reproducibility
+
+Validation status is **CONVERTER_AND_IMPORT_VALIDATED_WITH_SCHEMA_FAITHFUL_FIXTURE**.
+No upstream prediction engine was executed. Conversion/import tests do not
+establish model accuracy or clinical immunogenicity/treatment efficacy. A high IM
+score does not guarantee an immune response. Missing/unsupported/failed results,
+valid zero and evaluated negative evidence stay distinct; do not substitute zero
+for missing data or average incompatible scores.
+
+Keep original prediction files, model/software versions, the completed project,
+reviewed converter ID/SHA256 and matching reference information. Vendor licensing,
+installation and model acquisition remain your responsibility. Full per-adapter
+source/fixture provenance is retained in its immutable PROVENANCE.json and the
+[machine-readable inventory](UPSTREAM-RESEARCH.json).
 
 ## Community OK/NG, comments and broken converters
 
-[Issue #3](https://github.com/hase62/Neoantimon2-Converters/issues/3) is retained
-as a maintainer synthetic test of the feedback lifecycle for
-`synthetic-example@1.0.0`. Its `feedback.json` snapshot of one OK and one NG
-records test reactions from the same maintainer, not independent user
-evaluations or feedback on the nine BA/EL/IM converters. The issue and snapshot
-are historical test evidence; votes never authorize converter execution.
+Community feedback is not scientific certification or execution consent.
+[Issue #3](https://github.com/hase62/Neoantimon2-Converters/issues/3) and its
+one-OK/one-NG snapshot are retained **maintainer synthetic testing**, not independent
+user evaluation. Do not upload patient data. [Maintenance/security reference](MAINTAINERS.md)
+contains submission, immutable-version, feedback and deployment rules; none are
+relaxed. [Figure exports and editing](WORKFLOW.md) are separate from this user path.
 
-Any GitHub user can react +1 for OK or -1 for NG on the linked version Issue
-and add comments. Include converter ID/SHA256, predictor/model version,
-dependency/runtime version, expected versus actual result and a small synthetic
-reproduction. Report incompatible predictor versions explicitly; an OK on
-one version is not an endorsement of other versions. Use the broken-converter
-Issue template when no feedback Issue exists, or to report a specific failure.
-Never attach private provider outputs, patient data, credentials or licensed
-files. Maintainers link the canonical Issue and record observed reaction totals
-in feedback.json through a data-only PR, including refreshed_at. Counts stay
-manual, can be stale, and do not authorize execution or certify science. No
-database, Cloudflare, API token or hosted backend is needed for this workflow.
-
-## Maintainer deployment
-
-The owner maintains this standalone repository. Community PRs require one
-maintainer/CODEOWNERS review and the validate status check. Accepted converter
-files cannot be changed: use a new version directory. Infrastructure updates
-need particular security review. The owner can perform documented maintenance
-using administrator bypass; this is not independent contributor approval.
-Do not add repository secrets or execute scripts in PR validation. Default
-workflow tokens are read-only and cannot approve PRs.
-
-Pages is configured with GitHub Actions as its source and github-pages accepts
-only the main branch. Dispatch pages.yml on main after reviewing a change.
-Its read-only build stages static assets; its privileged deployment job has
-no checkout or converter execution. Direct action commits are pinned. Review
-upstream/transitive action updates before changing those pins.
-
-The initial feedback snapshot links [maintainer test Issue #3](https://github.com/hase62/Neoantimon2-Converters/issues/3).
-Its OK=1 and NG=1 reactions are both from the same owner account @hase62.
-The maintainer synthetic test PRs and Issue are operational smoke tests, not
-independent community validation, scientific review or real predictor accuracy
-claims. Feedback snapshots remain manual; an Issue's reaction counts can be
-stale and can include maintainer test reactions. Genuine third-party reports,
-licensed predictors and fork-account behavior require separate verification.
-
-## Immutable metadata and mutable feedback
-
-New submissions put only id, runtime, script, sha256, metadata,
-supported_predictor_versions and source_revision in metadata.json. All files
-in an accepted version directory remain immutable, including synthetic fixtures.
-For compatibility, existing version files may retain the old issue_url/ok/ng
-fields. The builder validates their hygiene and **ignores** these frozen copies;
-it does not edit the accepted files or fall back to their obsolete counts.
-The provided synthetic version directory is byte-for-byte unchanged.
-
-feedback.json uses schema_version 1.0.0 and a feedback object keyed by accepted
-converter ID. Each value has issue_url (GitHub Issue or null), nonnegative
-integer ok/ng snapshots, and optional refreshed_at (UTC YYYY-MM-DDTHH:MM:SSZ
-or null). An unlinked entry has zero counts and no timestamp. Missing IDs
-default to unlinked/zero, displayed as unavailable feedback rather than live
-zero votes. Duplicate IDs, unknown IDs, unexpected fields, malformed URLs,
-counts and timestamps are rejected. feedback.schema.json documents this data
-contract; build_index.py additionally checks referential integrity and dates.
-
-The builder merges the mapping into the existing public index schema; the R
-reader and pinned offline converter resolver need no change. A timestamp stays
-in feedback.json, because adding it to public index entries would break the
-current strict R reader. The static page reads both files and labels counts
-as snapshots, including their recorded date or an explicit unknown date.
-
-## Post-merge issue creation and snapshot updates
-
-1. Review and merge a new immutable converter version with its real source
-   revision and no issue link. Build the index; no votes are claimed current.
-2. After merge, create one feedback Issue for the accepted ID through GitHub.
-   Do not edit its accepted version directory. Record the real Issue URL in
-   feedback.json via a separate data-only PR, initially with zero counts and
-   no refresh timestamp. The issue template records ID/SHA and synthetic use.
-3. Build with `python3 build_index.py .`. The link appears in index.json and
-   remains on every subsequent rebuild, because feedback.json is authoritative.
-4. A maintainer may record observed +1/-1 totals and their observation timestamp
-   in another feedback-only PR. Rebuilding preserves these values and does
-   not change any converter files. Snapshots can be stale; this scaffold does
-   not implement automatic reaction synchronization or claim live counts.
-
-The offline tests simulate this lifecycle with synthetic URLs, repeated index
-builds and complete version-directory hash comparisons. They do not alone establish hosted GitHub behavior. For an existing registry adopting
-this scaffold, merge the trusted validator/schema/workflow update first,
-copy reviewed legacy feedback into the separate mapping once, then permit
-feedback-only PRs. Do not relax accepted-file immutability for the migration.
-Do not repair generated index.json alone; a rebuild intentionally replaces it.
-
-GitHub users give **OK** with an issue's `+1` reaction and **NG** with `-1`.
-Comments should describe tool/version, synthetic test, discrepancy and expected
-behavior. GitHub accounts are required for reactions. These are community
-observations, not official approval or scientific certification. The static
-index displays snapshots and links to the issue. Unlinked entries show counts
-as unavailable; linked snapshots may become stale. No per-analysis GitHub API call occurs. A future
-read-only maintenance job may refresh counts using the
-[official issue reaction endpoints](https://docs.github.com/en/rest/reactions/reactions#create-reaction-for-an-issue).
-The [GitHub Actions secure-use guidance](https://docs.github.com/en/actions/reference/security/secure-use)
-describes why untrusted pull-request code must not execute with privileged access.
-
-Package usage (after choosing a real URL, or entirely offline):
-
-```r
-neo_analyze_external(p, "X.tsv", policy = list(mode = "evidence_only"),
-  converter_id = "synthetic-example@1.0.0", registry = "/local/registry/index.json")
-# First use refuses execution and prints the pinned file and checksum for review.
-neo_analyze_external(p, "X.tsv", policy = list(mode = "evidence_only"),
-  converter_id = "synthetic-example@1.0.0", registry = "/local/registry/index.json",
-  trust = TRUE) # explicit authorization to execute this exact script
-```
-
-Approval is stored beside the pinned bytes under the disposable run cache.
-Subsequent use verifies and reuses the pin offline; changing the remote index
-does not replace it. A new run requires trust again. Preserve converters and raw
-prediction outputs outside runs to recreate analyses after deleting a run.
-Feedback updates also do not replace a cached pin or its recorded discovery
-snapshot. An OK vote does not approve local script execution.
-
-## Execute one reviewed converter locally
-
-With Neoantimon2 installed and a completed local neo_project `p`, choose the
-exact version, inspect its public script and install dependencies yourself:
-
-```r
-registry <- "https://www.hase62.jp/Neoantimon2-Converters/index.json"
-# Explicit selection for the synthetic example only:
-policy <- list(mode = "external_rank", provider = "synthetic-model",
-  run_id = "demo-run-1", task = "external:synthetic_score", metric = "score",
-  score_direction = "higher_is_better")
-a <- neo_analyze_external(p, "/path/to/output-X.tsv", policy,
-  converter_id = "synthetic-example@1.0.0", registry = registry, trust = TRUE)
-results <- neo_external_results(a)
-neo_external_explain(a, results$candidate_id[[1L]])
-```
-
-`policy` is the explicit external ranking policy described by Neoantimon2's
-external-prediction guide; the synthetic example uses external:synthetic_score,
-provider synthetic-model, run_id demo-run-1, metric score, higher_is_better.
-Without trust=TRUE first use stops with TRUST_REQUIRED before executing code.
-SHA256 is verified before execution; later approved cache reuse needs no network.
-Consent is per completed project and exact cached version, never granted by votes.
-Scripts run with the user's local permissions. Inspect them; this is not a sandbox.
-Original inputs stay in data, while generated outputs/caches stay in runs.
-Portable export-bundle-only execution and universal downstream integration are
-not supported: retain the completed project. Local paths also remain supported.
+[LICENSE](LICENSE), [NOTICE](NOTICE) and [LICENSING.md](LICENSING.md) preserve
+infrastructure/converter boundaries and third-party terms. A checksum or vote is
+not a security guarantee. Core scientific analysis remains in the released
+Neoantimon2 package; this Registry does not change its APIs or algorithms.

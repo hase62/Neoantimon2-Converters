@@ -31,6 +31,13 @@ class PublicationTests(unittest.TestCase):
         for name in ("LICENSE", "NOTICE", "LICENSING.md"):
             self.assertEqual((out / name).read_bytes(), (self.root / name).read_bytes())
 
+    def test_maintenance_reference_staged_and_missing_reference_rejected(self):
+        out = prepare(self.root, self.parent / "site")
+        self.assertEqual((out / "MAINTAINERS.md").read_bytes(), (self.root / "MAINTAINERS.md").read_bytes())
+        (self.root / "MAINTAINERS.md").unlink()
+        with self.assertRaisesRegex(ValueError, "MAINTAINERS"):
+            prepare(self.root, self.parent / "missing-reference-site")
+
     def test_missing_license_refused_before_output_created(self):
         (self.root / "LICENSE").unlink()
         out = self.parent / "site"
@@ -64,8 +71,8 @@ class PublicationTests(unittest.TestCase):
 
     def test_guide_uses_canonical_https_index(self):
         guide = (self.root / "README.md").read_text()
-        self.assertIn('registry <- "https://www.hase62.jp/Neoantimon2-Converters/index.json"', guide)
-        self.assertIn("alias was observed redirecting through HTTP", guide)
+        self.assertIn("https://www.hase62.jp/Neoantimon2-Converters/index.json", guide)
+        self.assertIn("alias was observed redirecting through HTTP", (self.root / "MAINTAINERS.md").read_text())
 
     def test_workflow_assets_are_staged_as_reviewed_static_bytes(self):
         from prepare_pages import WORKFLOW_ASSETS

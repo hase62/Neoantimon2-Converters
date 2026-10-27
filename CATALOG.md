@@ -1,6 +1,6 @@
 # BA / EL / IM converter catalog
 
-[Offline BA/EL/IM walkthrough](EXTERNAL-QUICKSTART.md) · [Registry](README.md) · [Machine-readable research](UPSTREAM-RESEARCH.json)
+[User workflow](README.md) · [Worked BA/EL/IM examples](EXTERNAL-QUICKSTART.md) · [Machine-readable research](UPSTREAM-RESEARCH.json)
 
 The nine BA/EL/IM converters listed in this catalog are publicly available through the [hosted Neoantimon2 Converter Registry](https://www.hase62.jp/Neoantimon2-Converters/) as of October 25, 2026. The Registry contains these **9 registrations / 8 method families** plus a synthetic-example converter. New local additions or pull requests are published only after review and deployment.
 

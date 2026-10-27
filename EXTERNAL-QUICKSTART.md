@@ -1,6 +1,9 @@
 # External prediction: BA, EL and IM
 
-[Converter catalog](CATALOG.md) · [Registry and consent](README.md) ·
+The [README](README.md) is the complete introductory workflow. This page extends
+its offline project into separate BA/EL/IM worked examples.
+
+[Converter catalog](CATALOG.md) · [Security reference](MAINTAINERS.md) ·
 [Upstream evidence](UPSTREAM-RESEARCH.json)
 
 The Registry provides format adapters, not prediction engines. Use the existing
