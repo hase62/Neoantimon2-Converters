@@ -16,7 +16,13 @@ software, models or weights**.
 
 ## Start with your files
 
-You need an installed Neoantimon2 **v0.3.0**, a **completed project** `p`, its
+The external-import APIs are available in the immutable Neoantimon2 **v0.3.0**
+baseline and in current **main**. [Choose the Core version and installation](https://github.com/hase62/Neoantimon2#choose-a-version)
+for your workflow; record the exact commit as well as the package version.
+The released baseline has 16 APIs, `reproducibility-v1` has 20, and main has 22;
+Registry conversion does not add Core APIs or backport later molecular repairs.
+
+You need an installed Core, a **completed project** `p`, its
 Export Bundle and the external predictor's output. Native scores/grades need
 not be available. Keep the original project for import; the bundle alone cannot
 replace it. No new HLA typing or peptide reconstruction happens here.
@@ -112,9 +118,12 @@ TSV import above executes no converter. The canonical index is
 
 ## Try it offline
 
-From this Registry checkout, with Neoantimon2 v0.3.0 and its dependencies already
+From this Registry checkout, with the **immutable Neoantimon2 v0.3.0** and its dependencies already
 installed, review the local scripts and run this complete synthetic demonstration.
-It executes format adapters, **not prediction engines**, and needs no network:
+This release-pinned demo intentionally requires v0.3.0, even if you normally use
+main; use a separate R library rather than changing its version guard. For a
+small current-main example, use the [Core offline workflow](https://github.com/hase62/Neoantimon2/blob/main/docs/user/external-predictions.md#executable-offline-example).
+The demo executes format adapters, **not prediction engines**, and needs no network:
 
 ```r
 library(Neoantimon2)
@@ -157,7 +166,10 @@ continue the same offline project with one selected run per category.
 ## Limitations and reproducibility
 
 Validation status is **CONVERTER_AND_IMPORT_VALIDATED_WITH_SCHEMA_FAITHFUL_FIXTURE**.
-No upstream prediction engine was executed. Conversion/import tests do not
+That status describes the Registry's bundled fixture checks, which execute no
+upstream prediction engine. It is separate from the Core's
+[versioned research evidence](https://github.com/hase62/Neoantimon2/blob/main/docs/development/validation-evidence.md).
+Conversion/import tests do not
 establish model accuracy or clinical immunogenicity/treatment efficacy. A high IM
 score does not guarantee an immune response. Missing/unsupported/failed results,
 valid zero and evaluated negative evidence stay distinct; do not substitute zero
@@ -180,5 +192,7 @@ relaxed. [Figure exports and editing](WORKFLOW.md) are separate from this user p
 
 [LICENSE](LICENSE), [NOTICE](NOTICE) and [LICENSING.md](LICENSING.md) preserve
 infrastructure/converter boundaries and third-party terms. A checksum or vote is
-not a security guarantee. Core scientific analysis remains in the released
-Neoantimon2 package; this Registry does not change its APIs or algorithms.
+not a security guarantee. Core scientific analysis remains in Neoantimon2, with a released baseline and
+separate current development branch. This Registry does not change its APIs or
+algorithms. The [fixed public saved-result snapshot](https://github.com/hase62/Neoantimon2/releases/tag/reproducibility-v1)
+is not a new replay of current main or a deposit of all author-held evaluations.
