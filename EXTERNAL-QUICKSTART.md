@@ -6,8 +6,14 @@ its offline project into separate BA/EL/IM worked examples.
 [Converter catalog](CATALOG.md) · [Security reference](MAINTAINERS.md) ·
 [Upstream evidence](UPSTREAM-RESEARCH.json)
 
-The Registry provides format adapters, not prediction engines. Use the existing
-Neoantimon2 **v0.3.0** installation and Python >= 3.9; these adapters need only
+The Registry provides format adapters, not prediction engines. The Core external
+APIs are present in released v0.3.0 and current main; see the
+[version guide](https://github.com/hase62/Neoantimon2#choose-a-version).
+The complete walkthrough below is intentionally pinned to **v0.3.0**, while
+ordinary import can use your chosen compatible Core. Do not remove the demo's
+version assertion to claim a release-specific validation on main. For current
+main's smaller synthetic example, use the [Core offline workflow](https://github.com/hase62/Neoantimon2/blob/main/docs/user/external-predictions.md#executable-offline-example).
+Use Python >= 3.9; these adapters need only
 Python's standard library. Do not install predictors or download weights to run
 this guide. Review the selected immutable script before authorizing execution.
 
@@ -137,6 +143,7 @@ Exact Class II alpha/beta identity and the no-context restriction matter.
 
 Validation status:
 `CONVERTER_AND_IMPORT_VALIDATED_WITH_SCHEMA_FAITHFUL_FIXTURE`.
-No upstream predictor was executed. Software/model acquisition, licensing and
+This statement is scoped to these schema-faithful fixtures, not all historical
+Core research runs. Software/model acquisition, licensing and
 actual predictor execution remain the user's responsibility. The core research
 outputs do not establish clinical immunogenicity or treatment efficacy.

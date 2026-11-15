@@ -45,7 +45,10 @@ This simplification omits ID lists and policy thresholds, not their requirements
 | Separate results/ranking, native immutability | Released core `R/external_analysis.R`; the same integration test hashes native artifacts |
 | ID/SHA pins and explicit consent | Released core `R/external_registry.R`, `R/external_converter.R`; [security reference](MAINTAINERS.md) |
 
-Authoritative core is immutable [v0.3.0 / eca5f06](https://github.com/hase62/Neoantimon2/tree/eca5f06fc39c1275f1e4f47ba3886f532fb08a6b).
+The release-specific authority for this integration fixture is immutable
+[v0.3.0 / eca5f06](https://github.com/hase62/Neoantimon2/tree/eca5f06fc39c1275f1e4f47ba3886f532fb08a6b).
+Current Core main also exposes the external APIs; [choose its version separately](https://github.com/hase62/Neoantimon2#choose-a-version).
+The release-pinned demo is not a new validation of all main features.
 The standard importer also supports peptide-only evidence; these nine adapters
 emit peptide+HLA records. Exact Class II pairs and the catalog's no-context/allele
 constraints still apply.
