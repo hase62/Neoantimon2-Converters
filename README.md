@@ -19,8 +19,7 @@ software, models or weights**.
 The external-import APIs are available in the immutable Neoantimon2 **v0.3.0**
 baseline and in current **main**. [Choose the Core version and installation](https://github.com/hase62/Neoantimon2#choose-a-version)
 for your workflow; record the exact commit as well as the package version.
-The released baseline has 16 APIs, `reproducibility-v1` has 20, and main has 22;
-Registry conversion does not add Core APIs or backport later molecular repairs.
+The released baseline has 16 APIs, `reproducibility-v1` has 20 and main has 22.
 
 You need an installed Core, a **completed project** `p`, its
 Export Bundle and the external predictor's output. Native scores/grades need
@@ -108,7 +107,11 @@ peptide+HLA evidence; Class II pairs remain exact. All matched original Origins
 are retained. Results/explanations and external ranking remain **separate**;
 native evidence, grades and ranks stay unchanged. Raw scores, especially IM,
 do not automatically produce somatic A–E grades. Other methods require their
-own explicit provider/metric/direction, not the BigMHC policy by analogy.
+own explicit provider/metric/direction. On Core main, continue with
+[reference percentiles and private offline review](https://github.com/hase62/Neoantimon2/blob/e88934784ae8247a3ac3be2ca3e43f9ad9d4a969/docs/user/candidate-review-and-reference-percentiles.md). A reference
+percentile requires a matching model identity and reference distribution. When a
+converter leaves the model version empty, retain that missing value unless
+you can establish the model from the recorded prediction run.
 
 Neoantimon2 can also select a version through a local/HTTPS Registry index.
 First use requires `trust = TRUE` after review; later approved cached bytes are
@@ -195,4 +198,6 @@ infrastructure/converter boundaries and third-party terms. A checksum or vote is
 not a security guarantee. Core scientific analysis remains in Neoantimon2, with a released baseline and
 separate current development branch. This Registry does not change its APIs or
 algorithms. The [fixed public saved-result snapshot](https://github.com/hase62/Neoantimon2/releases/tag/reproducibility-v1)
-is not a new replay of current main or a deposit of all author-held evaluations.
+reaggregates archived HCC1395 tables. The [fixed candidate workflow](https://github.com/hase62/Neoantimon2/blob/e88934784ae8247a3ac3be2ca3e43f9ad9d4a969/docs/user/candidate-review-and-reference-percentiles.md#reproduce-from-a-fixed-checkout)
+exercises prediction import, matched reference percentiles and private review
+on Core development source.

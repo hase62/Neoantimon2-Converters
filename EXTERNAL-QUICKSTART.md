@@ -33,7 +33,9 @@ this guide. Review the selected immutable script before authorizing execution.
    Alternatively select the same `converter_id` and reviewed local `index.json`
    on the raw input with explicit first-use `trust = TRUE`.
 6. Read `neo_external_results()` and `neo_external_explain()`. Select an explicit
-   provider/run/task/metric/direction for ranking; native results stay unchanged.
+   provider/run/task/metric/direction for ranking.
+7. If using Core main, you can continue to the [reference percentile and private review workflow](https://github.com/hase62/Neoantimon2/blob/e88934784ae8247a3ac3be2ca3e43f9ad9d4a969/docs/user/candidate-review-and-reference-percentiles.md).
+   Reference percentiles require an exact model and reference match.
 
 ## Complete offline walkthrough
 
